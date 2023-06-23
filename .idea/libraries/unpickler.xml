@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="unpickler" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/unpickler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/unpickler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/unpickler/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/unpickler/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/unpickler/lib" />
+      <root url="file://$PROJECT_DIR$/deps/unpickler/lib" />
+    </SOURCES>
+  </library>
+</component>

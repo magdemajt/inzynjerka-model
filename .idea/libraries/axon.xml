@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="axon" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/axon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/axon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/axon/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/axon/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/axon/lib" />
+      <root url="file://$PROJECT_DIR$/deps/axon/lib" />
+    </SOURCES>
+  </library>
+</component>

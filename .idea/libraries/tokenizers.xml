@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="tokenizers" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/tokenizers/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/tokenizers/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/tokenizers/lib" />
+      <root url="file://$PROJECT_DIR$/deps/tokenizers/lib" />
+    </SOURCES>
+  </library>
+</component>

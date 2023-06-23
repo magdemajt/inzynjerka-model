@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="progress_bar" type="mix">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/progress_bar/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/progress_bar/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/progress_bar/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/progress_bar/ebin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/progress_bar/lib" />
+      <root url="file://$PROJECT_DIR$/deps/progress_bar/lib" />
+    </SOURCES>
+  </library>
+</component>
