@@ -7,9 +7,15 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/websock/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/websock/lib" />
+      <root url="file://$PROJECT_DIR$/deps/websock/lib" />
       <root url="file://$PROJECT_DIR$/deps/websock/lib" />
       <root url="file://$PROJECT_DIR$/deps/websock/lib" />
       <root url="file://$PROJECT_DIR$/deps/websock/lib" />

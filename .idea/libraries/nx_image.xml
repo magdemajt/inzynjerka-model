@@ -5,9 +5,15 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_image/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/nx_image/lib" />
+      <root url="file://$PROJECT_DIR$/deps/nx_image/lib" />
       <root url="file://$PROJECT_DIR$/deps/nx_image/lib" />
       <root url="file://$PROJECT_DIR$/deps/nx_image/lib" />
     </SOURCES>

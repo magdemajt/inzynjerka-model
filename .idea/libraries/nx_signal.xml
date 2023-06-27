@@ -5,9 +5,15 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/nx_signal/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/nx_signal/lib" />
+      <root url="file://$PROJECT_DIR$/deps/nx_signal/lib" />
       <root url="file://$PROJECT_DIR$/deps/nx_signal/lib" />
       <root url="file://$PROJECT_DIR$/deps/nx_signal/lib" />
     </SOURCES>

@@ -5,9 +5,15 @@
       <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
       <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
+      <root url="file://$PROJECT_DIR$/_build/dev/lib/xla/ebin" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
+      <root url="file://$PROJECT_DIR$/deps/xla/lib" />
+      <root url="file://$PROJECT_DIR$/deps/xla/lib" />
       <root url="file://$PROJECT_DIR$/deps/xla/lib" />
       <root url="file://$PROJECT_DIR$/deps/xla/lib" />
     </SOURCES>

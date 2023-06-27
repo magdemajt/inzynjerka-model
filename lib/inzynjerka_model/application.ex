@@ -4,6 +4,8 @@ defmodule InzynjerkaModel.Application do
   @moduledoc false
 
   use Application
+  alias InzynjerkaModel.Chatbot
+
 
   @impl true
   def start(_type, _args) do
@@ -11,7 +13,7 @@ defmodule InzynjerkaModel.Application do
     {:ok, model_info} = Bumblebee.load_model({:hf, "Voicelab/sbert-large-cased-pl"})
     {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "Voicelab/sbert-large-cased-pl"})
 
-    serving = Bumblebee.serve(model_info, tokenizer) # TODO fix this stupid s**t
+    serving = Chatbot.qa_model(model_info, tokenizer)
 
     children = [
       # Start the Telemetry supervisor

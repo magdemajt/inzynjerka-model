@@ -1,12 +1,11 @@
 defmodule InzynjerkaModelWeb.ChatbotController do
   use InzynjerkaModelWeb, :controller
+  alias InzynjerkaModel.Chatbot
 
-  def home(conn, %{message: body}) do
-    response = Nx.Serving.batched_run(ChatApi.Serving, body)
-    {:ok, predictions} = Map.fetch(response, "predictions")
-    best = Enum.at(predictions, 0)
-    %{ score: score, label: label } = best
+  def chatbot(conn, body) do
+    similarity = Nx.Serving.batched_run(ChatApi.Serving, body["message"])
+    response = Chatbot.get_answer_from_similarity(similarity)
 
-    %{ score: score, label: label }
+    render(conn, :chatbot, response: response)
   end
 end
