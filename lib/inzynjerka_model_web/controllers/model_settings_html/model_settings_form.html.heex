@@ -1,0 +1,12 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:active]} type="checkbox" label="Active" />
+  <.input field={f[:low_threshold]} type="number" label="Low threshold" />
+  <.input field={f[:high_threshold]} type="number" label="High threshold" />
+  <.input field={f[:name]} type="text" label="Name" />
+  <:actions>
+    <.button>Save Model settings</.button>
+  </:actions>
+</.simple_form>

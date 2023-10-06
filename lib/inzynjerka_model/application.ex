@@ -19,7 +19,7 @@ defmodule InzynjerkaModel.Application do
       # Start the Telemetry supervisor
       InzynjerkaModelWeb.Telemetry,
       # Start the Ecto repository
-#      InzynjerkaModel.Repo,
+      InzynjerkaModel.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: InzynjerkaModel.PubSub},
       # Start Finch

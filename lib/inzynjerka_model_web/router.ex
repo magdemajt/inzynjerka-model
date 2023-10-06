@@ -14,11 +14,15 @@ defmodule InzynjerkaModelWeb.Router do
     plug :accepts, ["json"]
   end
 
-#  scope "/", InzynjerkaModelWeb do
-#    pipe_through :browser
-#
-#    get "/", PageController, :home
-#  end
+  pipeline :protected_api do
+    plug InzynjerkaModelWeb.EnsureAdminPlug
+  end
+
+  scope "/", InzynjerkaModelWeb do
+    pipe_through :browser
+
+    resources "/model_settings", ModelSettingsController
+  end
 
   # Other scopes may use custom stacks.
    scope "/", InzynjerkaModelWeb do

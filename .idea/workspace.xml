@@ -2,67 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Created integration">
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model/chatbot.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_json.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_admin_plug.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/axon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/axon.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/bumblebee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/bumblebee.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/castore.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/castore.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/complex.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/complex.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy_telemetry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy_telemetry.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/db_connection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/decimal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/decimal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ecto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ecto_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ecto_sql.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/elixir_make.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/elixir_make.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/esbuild.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/esbuild.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/exla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/exla.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/expo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/expo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/file_system.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/file_system.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/finch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/finch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/floki.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/floki.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/gettext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/gettext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/hpax.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hpax.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jason.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jason.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mime.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mime.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mint.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nimble_options.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nimble_options.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nimble_pool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nimble_pool.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nx.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nx.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nx_image.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nx_image.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/nx_signal.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nx_signal.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_html.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_dashboard.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_reload.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_reload.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_view.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_pubsub.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_template.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_crypto.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgrex.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/progress_bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/progress_bar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hackney.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hackney.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/ranch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ranch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/rustler_precompiled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/rustler_precompiled.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/swoosh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/swoosh.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/tailwind.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/tailwind.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/telemetry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/telemetry.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/telemetry_metrics.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/telemetry_metrics.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/telemetry_poller.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/telemetry_poller.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/tokenizers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/tokenizers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/unpickler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/unpickler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/unzip.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/unzip.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/websock.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/websock.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/websock_adapter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/websock_adapter.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/xla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/xla.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.exs" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.exs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_controller.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mix.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mix.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +22,38 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="b_microservice_auth" />
+                    <option name="lastUsedInstant" value="1696610829" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1696610828" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -106,7 +86,10 @@
       <workItem from="1687758165920" duration="1211000" />
       <workItem from="1687784474999" duration="3665000" />
       <workItem from="1687807468994" duration="9727000" />
-      <workItem from="1687901486288" duration="1391000" />
+      <workItem from="1687901486288" duration="1436000" />
+      <workItem from="1688147403419" duration="1009000" />
+      <workItem from="1688150744859" duration="401000" />
+      <workItem from="1696603319718" duration="11122000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1687540693038</created>
@@ -115,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687540693038</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Created integration">
+      <created>1687903500999</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687903500999</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

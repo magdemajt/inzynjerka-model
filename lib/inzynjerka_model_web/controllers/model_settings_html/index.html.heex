@@ -1,0 +1,26 @@
+<.header>
+  Listing Model settings
+  <:actions>
+    <.link href={~p"/model_settings/new"}>
+      <.button>New Model settings</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="model_settings" rows={@model_settings} row_click={&JS.navigate(~p"/model_settings/#{&1}")}>
+  <:col :let={model_settings} label="Active"><%= model_settings.active %></:col>
+  <:col :let={model_settings} label="Low threshold"><%= model_settings.low_threshold %></:col>
+  <:col :let={model_settings} label="High threshold"><%= model_settings.high_threshold %></:col>
+  <:col :let={model_settings} label="Name"><%= model_settings.name %></:col>
+  <:action :let={model_settings}>
+    <div class="sr-only">
+      <.link navigate={~p"/model_settings/#{model_settings}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/model_settings/#{model_settings}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={model_settings}>
+    <.link href={~p"/model_settings/#{model_settings}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

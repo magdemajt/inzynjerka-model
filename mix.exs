@@ -52,7 +52,8 @@ defmodule InzynjerkaModel.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:bumblebee, "~> 0.3.0"},
       {:nx, "~> 0.5.1"},
-      {:exla, "~> 0.5.1"}
+      {:exla, "~> 0.5.1"},
+      {:httpoison, "~> 2.0"}
     ]
   end
 

@@ -1,0 +1,8 @@
+<.header>
+  Edit Model settings <%= @model_settings.id %>
+  <:subtitle>Use this form to manage model_settings records in your database.</:subtitle>
+</.header>
+
+<.model_settings_form changeset={@changeset} action={~p"/model_settings/#{@model_settings}"} />
+
+<.back navigate={~p"/model_settings"}>Back to model_settings</.back>

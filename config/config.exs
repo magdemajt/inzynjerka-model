@@ -8,7 +8,9 @@
 import Config
 
 config :inzynjerka_model,
-  ecto_repos: [InzynjerkaModel.Repo]
+  ecto_repos: [InzynjerkaModel.Repo],
+  role_service_url: "http://location:4000/service/user/role",
+  role_service_secret: "BIG_SECRET"
 
 # Configures the endpoint
 config :inzynjerka_model, InzynjerkaModelWeb.Endpoint,
