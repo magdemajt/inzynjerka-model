@@ -12,7 +12,7 @@ defmodule InzynjerkaModelWeb.AuthController do
     |> halt()
   end
 
-  def get_config(key), do: Application.get_env(:inzynjerka_model) |> Map.fetch(key)
+  def get_config(key), do: Application.get_env(:inzynjerka_model, key)
 
   def is_admin(token) do
     secret = get_config(:role_service_secret)

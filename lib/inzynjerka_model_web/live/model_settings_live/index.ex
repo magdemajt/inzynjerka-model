@@ -5,8 +5,16 @@ defmodule InzynjerkaModelWeb.ModelSettingsLive.Index do
   alias InzynjerkaModel.Settings.ModelSettings
 
   @impl true
-  def mount(_params, _session, socket) do
-    {:ok, stream(socket, :model_settings_collection, Settings.list_model_settings())}
+  def mount(params, session, socket) do
+    IO.inspect session
+    session |> case do
+     %{token: token} -> token
+      _other -> {:error, %{reason: "unauthorized"}}
+    end |> InzynjerkaModelWeb.AuthController.is_admin |> case do
+      true -> {:ok, stream(socket, :model_settings_collection, Settings.list_model_settings())}
+      _other -> {:error, %{reason: "unauthorized"}}
+    end
+
   end
 
   @impl true
