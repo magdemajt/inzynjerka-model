@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Created integration">
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_admin_plug.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/hackney.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hackney.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ranch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ranch.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ssl_verify_fun.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.exs" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" afterDir="false" />
+    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Created model_settings model">
       <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.lock" beforeDir="false" afterPath="$PROJECT_DIR$/mix.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +77,7 @@
       <workItem from="1687901486288" duration="1436000" />
       <workItem from="1688147403419" duration="1009000" />
       <workItem from="1688150744859" duration="401000" />
-      <workItem from="1696603319718" duration="11122000" />
+      <workItem from="1696603319718" duration="12086000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1687540693038</created>
@@ -105,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687903500999</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Created model_settings model">
+      <created>1696616758646</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696616758646</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Created integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created integration" />
+    <MESSAGE value="Created model_settings model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created model_settings model" />
   </component>
 </project>

@@ -1,0 +1,29 @@
+<.header>
+  Model settings <%= @model_settings.id %>
+  <:subtitle>This is a model_settings record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/model_settings/#{@model_settings}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit model_settings</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Active"><%= @model_settings.active %></:item>
+  <:item title="Low threshold"><%= @model_settings.low_threshold %></:item>
+  <:item title="High threshold"><%= @model_settings.high_threshold %></:item>
+  <:item title="Name"><%= @model_settings.name %></:item>
+</.list>
+
+<.back navigate={~p"/model_settings"}>Back to model_settings</.back>
+
+<.modal :if={@live_action == :edit} id="model_settings-modal" show on_cancel={JS.patch(~p"/model_settings/#{@model_settings}")}>
+  <.live_component
+    module={InzynjerkaModelWeb.ModelSettingsLive.FormComponent}
+    id={@model_settings.id}
+    title={@page_title}
+    action={@live_action}
+    model_settings={@model_settings}
+    patch={~p"/model_settings/#{@model_settings}"}
+  />
+</.modal>

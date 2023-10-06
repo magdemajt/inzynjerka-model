@@ -21,7 +21,13 @@ defmodule InzynjerkaModelWeb.Router do
   scope "/", InzynjerkaModelWeb do
     pipe_through :browser
 
-    resources "/model_settings", ModelSettingsController
+    live "/model_settings", ModelSettingsLive.Index, :index
+    live "/model_settings/new", ModelSettingsLive.Index, :new
+    live "/model_settings/:id/edit", ModelSettingsLive.Index, :edit
+
+    live "/model_settings/:id", ModelSettingsLive.Show, :show
+    live "/model_settings/:id/show/edit", ModelSettingsLive.Show, :edit
+
   end
 
   # Other scopes may use custom stacks.
