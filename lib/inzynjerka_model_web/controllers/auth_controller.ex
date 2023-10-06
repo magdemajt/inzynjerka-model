@@ -14,6 +14,8 @@ defmodule InzynjerkaModelWeb.AuthController do
 
   def get_config(key), do: Application.get_env(:inzynjerka_model, key)
 
+  def is_admin(nil), do: false
+
   def is_admin(token) do
     secret = get_config(:role_service_secret)
     role_service_url = get_config(:role_service_url)
