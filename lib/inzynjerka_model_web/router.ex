@@ -1,8 +1,11 @@
 defmodule InzynjerkaModelWeb.Router do
   use InzynjerkaModelWeb, :router
+  import CORS
+  import AllowAllFrames
 
   pipeline :browser do
     plug :accepts, ["html"]
+    plug InzynjerkaModelWeb.Plugs.AllowAllFrames
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {InzynjerkaModelWeb.Layouts, :root}
@@ -12,7 +15,9 @@ defmodule InzynjerkaModelWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug CORS
   end
+
 
   pipeline :protected_api do
     plug InzynjerkaModelWeb.EnsureAdminPlug
