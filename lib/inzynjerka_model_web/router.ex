@@ -18,8 +18,18 @@ defmodule InzynjerkaModelWeb.Router do
     plug InzynjerkaModelWeb.EnsureAdminPlug
   end
 
+  pipeline :protected_live do
+    plug InzynjerkaModelWeb.EnsureSessionAdmin
+  end
+
   scope "/", InzynjerkaModelWeb do
     pipe_through :browser
+
+    live "/", AuthLoaderLive.Index, :index
+  end
+
+  scope "/", InzynjerkaModelWeb do
+    pipe_through [:browser, :protected_live]
 
     live "/model_settings", ModelSettingsLive.Index, :index
     live "/model_settings/new", ModelSettingsLive.Index, :new

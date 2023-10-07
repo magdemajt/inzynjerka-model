@@ -101,4 +101,8 @@ defmodule InzynjerkaModel.Settings do
   def change_model_settings(%ModelSettings{} = model_settings, attrs \\ %{}) do
     ModelSettings.changeset(model_settings, attrs)
   end
+
+  def get_most_recent_active_setting() do
+    Repo.one(from ms in ModelSettings, where: ms.active == true, order_by: [desc: ms.inserted_at])
+  end
 end

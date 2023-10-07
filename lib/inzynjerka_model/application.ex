@@ -9,11 +9,21 @@ defmodule InzynjerkaModel.Application do
 
   @impl true
   def start(_type, _args) do
+    opts = [strategy: :one_for_one, name: InzynjerkaModel.Supervisor]
+
+    children = [
+      InzynjerkaModel.Repo,
+    ]
+
+    Supervisor.start_link(children, opts)
+
 
     {:ok, model_info} = Bumblebee.load_model({:hf, "Voicelab/sbert-large-cased-pl"})
     {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "Voicelab/sbert-large-cased-pl"})
 
     serving = Chatbot.qa_model(model_info, tokenizer)
+
+    Supervisor.stop(InzynjerkaModel.Supervisor)
 
     children = [
       # Start the Telemetry supervisor
@@ -32,7 +42,6 @@ defmodule InzynjerkaModel.Application do
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: InzynjerkaModel.Supervisor]
     Supervisor.start_link(children, opts)
   end
 

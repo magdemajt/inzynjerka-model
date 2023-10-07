@@ -23,28 +23,31 @@ import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let token = window.localStorage.getItem('token');
-let liveSocket;
-if (token) {
-  liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken, token}})
+
+let Hooks = {};
+
+Hooks.GetToken = {
+  mounted() {
+    window.addEventListener('message', event => {
+      if (typeof event.data === 'object' && event.data?.token) {
+        const token = event.data.token;
+        window.localStorage.setItem('token', token);
+        this.pushEvent('update_token', {token})
+      }
+    })
+    let token = window.localStorage.getItem('token');
+    if (token) {
+      this.pushEvent('update_token', {token})
+    }
+  }
 }
+
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken, hooks: Hooks}});
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
-
-window.addEventListener('message', event => {
-  if (typeof event.data === 'object' && event.data?.token) {
-    liveSocket.disconnect();
-    const token = event.data.token;
-    window.localStorage.setItem('token', token);
-    liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken, token}})
-    liveSocket.connect();
-
-    window.liveSocket = liveSocket;
-  }
-})
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()
