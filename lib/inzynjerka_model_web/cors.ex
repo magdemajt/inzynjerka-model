@@ -1,4 +1,4 @@
-defmodule CORS do
+defmodule InzynjerkaModelWeb.CORS do
   @moduledoc """
   This plug sets CORS headers.
   """
