@@ -1,15 +1,14 @@
 defmodule InzynjerkaModelWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :inzynjerka_model
 
-  # The session will be stored in the cookie and signed,
-  # this means its contents can be read but not tampered with.
-  # Set :encryption_salt if you would also like to encrypt it.
+
   @session_options [
-    store: :cookie,
-    key: "_inzynjerka_model_key",
+    store: PhoenixLiveSession,
+    pub_sub: InzynjerkaModel.PubSub,
     signing_salt: "MS/Nd2jc",
-    same_site: "Lax"
+    key: "_inzynjerka_model_key",
   ]
+
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 

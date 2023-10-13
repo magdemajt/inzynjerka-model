@@ -22,10 +22,7 @@ defmodule InzynjerkaModelWeb.AuthLoaderLive.Index do
   @impl true
   def handle_event("update_token", %{"token" => token}, socket) do
     IO.inspect("Received token: #{token}")
-    Phoenix.LiveView.get_session(socket, :token) |> case do
-      {:ok, session} -> Phoenix.LiveView.put_session(socket, :token, token)
-      _other -> nil
-    end
+    PhoenixLiveSession.put_session(socket, :token, token)
     {:noreply, socket}
   end
 end
