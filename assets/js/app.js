@@ -24,21 +24,29 @@ import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
+let eventQueue= []
+
+window.addEventListener('message', event => {
+  if (typeof event.data === 'object' && event.data?.token) {
+    const token = event.data.token;
+    window.localStorage.setItem('token', token);
+    eventQueue.push(token)
+  }
+})
+
 let Hooks = {};
 Hooks.GetToken = {
   mounted() {
-    window.addEventListener('message', event => {
-      if (typeof event.data === 'object' && event.data?.token) {
-        const token = event.data.token;
-        window.localStorage.setItem('token', token);
+
+    setInterval(() => {
+      const token = eventQueue.shift();
+      if (token) {
+        console.log(token)
+
         this.pushEvent('update_token', {token})
       }
-    })
-    let token = window.localStorage.getItem('token');
-    if (token) {
-      this.pushEvent('update_token', {token})
-    }
-  }
+    }, 500)
+  },
 }
 
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks});
