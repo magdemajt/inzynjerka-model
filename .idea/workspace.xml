@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Created model_settings model">
-      <change beforePath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inzynjerka_model.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/bumblebee.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/bumblebee.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/castore.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/castore.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowboy_telemetry.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowboy_telemetry.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/cowlib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ecto_sql.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ecto_sql.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/elixir_make.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/elixir_make.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/esbuild.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/esbuild.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/exla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/exla.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/finch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/finch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/hackney.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/hackney.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/mint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/nimble_pool.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/nimble_pool.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_ecto.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_dashboard.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_dashboard.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_reload.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_reload.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/phoenix_live_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/phoenix_live_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/plug_cowboy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/ranch.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/ranch.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/rustler_precompiled.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/rustler_precompiled.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/swoosh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/swoosh.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/tailwind.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/tailwind.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/tokenizers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/tokenizers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/websock.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/websock.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/websock_adapter.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/websock_adapter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/xla.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/xla.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/auth_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/auth_controller.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/endpoint.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/endpoint.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_session_guest.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_session_guest.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/components/layouts/app.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/components/layouts/app.html.heex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/index.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/index.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mix.exs" beforeDir="false" afterPath="$PROJECT_DIR$/mix.exs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
