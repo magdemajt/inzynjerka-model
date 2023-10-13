@@ -1,4 +1,4 @@
-defmodule MyAppWeb.Plugs.EnsureSessionAdmin do
+defmodule InzynjerkaModelWeb.EnsureSessionGuest do
   import Plug.Conn
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2, halt: 1]
 
