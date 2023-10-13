@@ -8,10 +8,13 @@ defmodule InzynjerkaModelWeb.Router do
     plug :put_root_layout, {InzynjerkaModelWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug InzynjerkaModelWeb.AllowAllFrames
+
   end
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug InzynjerkaModelWeb.CORS
   end
 
   pipeline :only_guest_live do

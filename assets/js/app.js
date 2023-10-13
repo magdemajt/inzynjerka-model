@@ -25,7 +25,6 @@ import topbar from "../vendor/topbar"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 let Hooks = {};
-
 Hooks.GetToken = {
   mounted() {
     window.addEventListener('message', event => {
@@ -42,7 +41,7 @@ Hooks.GetToken = {
   }
 }
 
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken, hooks: Hooks}});
+let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks});
 
 // Show progress bar on live navigation and form submits
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
