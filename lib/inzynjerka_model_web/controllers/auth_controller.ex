@@ -25,7 +25,12 @@ defmodule InzynjerkaModelWeb.AuthController do
     end
   end
 
-  def ensure_admin(conn) do
+
+  def ensure_admin('token', token) do
+    auth_token = token |> is_admin |> maybe_halt(conn)
+  end
+
+  def ensure_admin('conn', conn) do
     auth_token = Conn.get_req_header(conn, "authorization") |> is_admin |> maybe_halt(conn)
   end
 end

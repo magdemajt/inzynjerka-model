@@ -14,6 +14,10 @@ defmodule InzynjerkaModelWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :only_guest_live do
+    plug InzynjerkaModelWeb.EnsureSessionGuest
+  end
+
   pipeline :protected_api do
     plug InzynjerkaModelWeb.EnsureAdminPlug
   end
@@ -23,13 +27,15 @@ defmodule InzynjerkaModelWeb.Router do
   end
 
   scope "/", InzynjerkaModelWeb do
-    pipe_through :browser
+    pipe_through [:browser, :only_guest_live]
 
     live "/", AuthLoaderLive.Index, :index
   end
 
   scope "/", InzynjerkaModelWeb do
     pipe_through [:browser, :protected_live]
+
+    live "/home", AuthLoaderLive.Home, :index
 
     live "/model_settings", ModelSettingsLive.Index, :index
     live "/model_settings/new", ModelSettingsLive.Index, :new

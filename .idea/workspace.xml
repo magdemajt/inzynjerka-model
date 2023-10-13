@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Added getting token from iframe parent - fix">
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_session_admin.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/index.ex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/index.html.heex" afterDir="false" />
+    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="Added questions">
+      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_session_guest.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/home.ex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live/home.html.heex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model/application.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model/chatbot.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model/chatbot.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model/settings.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model/settings.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/components/layouts/app.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/components/layouts/app.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_controller.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_json.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/chatbot_json.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/auth_controller.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/auth_controller.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_admin_plug.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/ensure_admin_plug.ex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/router.ex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +72,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/inzynjerka_model_web/live/auth_loader_live" />
+      <recent name="$PROJECT_DIR$/lib/inzynjerka_model_web" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -95,7 +91,11 @@
       <workItem from="1688147403419" duration="1009000" />
       <workItem from="1688150744859" duration="401000" />
       <workItem from="1696603319718" duration="17603000" />
-      <workItem from="1696667676779" duration="13409000" />
+      <workItem from="1696667676779" duration="14044000" />
+      <workItem from="1696837932174" duration="7000" />
+      <workItem from="1696955660379" duration="408000" />
+      <workItem from="1697003975057" duration="8000" />
+      <workItem from="1697210939958" duration="1515000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1687540693038</created>
@@ -146,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696625218079</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added questions">
+      <created>1696691903183</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696691903183</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +178,7 @@
     <MESSAGE value="Added is_admin function and auth controller" />
     <MESSAGE value="Added getting token from iframe parent" />
     <MESSAGE value="Added getting token from iframe parent - fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getting token from iframe parent - fix" />
+    <MESSAGE value="Added questions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added questions" />
   </component>
 </project>

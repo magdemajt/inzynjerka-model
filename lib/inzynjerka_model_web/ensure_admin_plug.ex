@@ -5,7 +5,7 @@ defmodule InzynjerkaModelWeb.EnsureAdminPlug do
   alias Plug.Conn
 
   def call(conn) do
-    InzynjerkaModelWeb.AuthController.ensure_admin(conn)
+    InzynjerkaModelWeb.AuthController.ensure_admin('conn', conn)
   end
 
 
