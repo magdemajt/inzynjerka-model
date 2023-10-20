@@ -6,7 +6,8 @@ defmodule InzynjerkaModelWeb.AuthLoaderLive.Index do
 
   @impl true
   def mount(params, session, socket) do
-    {:ok, socket}
+    session = Map.put_new(session, :token, "")
+    {:ok, assign(socket, :session, session)}
   end
 
   @impl true
@@ -22,7 +23,8 @@ defmodule InzynjerkaModelWeb.AuthLoaderLive.Index do
   @impl true
   def handle_event("update_token", %{"token" => token}, socket) do
     IO.inspect("Received token: #{token}")
-    PhoenixLiveSession.put_session(socket, :token, token)
-    {:noreply, socket}
+    session = socket.assigns[:session]
+    session = Map.put(session, :token, token)
+    {:noreply, push_redirect(socket, to: ~p"/home", replace: true)}
   end
 end
