@@ -51,4 +51,5 @@ defmodule InzynjerkaModelWeb.ModelSettingsLive.Index do
 
     {:noreply, stream_delete(socket, :model_settings_collection, model_settings)}
   end
+
 end
