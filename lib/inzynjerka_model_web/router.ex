@@ -18,7 +18,7 @@ defmodule InzynjerkaModelWeb.Router do
   end
 
   pipeline :only_guest_live do
-    plug InzynjerkaModelWeb.EnsureSessionGuest
+    plug InzynjerkaModelWeb.EnsureQueryParamGuest
   end
 
   pipeline :protected_api do
@@ -26,7 +26,7 @@ defmodule InzynjerkaModelWeb.Router do
   end
 
   pipeline :protected_live do
-    plug InzynjerkaModelWeb.EnsureSessionAdmin
+    plug InzynjerkaModelWeb.EnsureQueryParamAdmin
   end
 
   scope "/", InzynjerkaModelWeb do
