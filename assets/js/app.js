@@ -26,6 +26,21 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 
 let eventQueue= []
 
+window.onload = () => {
+  document.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', event => {
+      event.preventDefault();
+      console.log(event, 'eventy')
+      let params = window.location.search;
+      let dest = a.getAttribute('href') + params;
+      console.log(params, dest)
+      setTimeout(() => {
+        location.replace(dest)
+      }, 100)
+    })
+  })
+}
+
 window.addEventListener('message', event => {
   if (typeof event.data === 'object' && event.data?.token) {
     const token = event.data.token;
