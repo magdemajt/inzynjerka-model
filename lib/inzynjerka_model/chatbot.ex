@@ -4,6 +4,7 @@ defmodule InzynjerkaModel.Chatbot do
 
   def get_questions() do
     questions = Questions.list_questions()
+    IO.inspect questions
     questions = if length(questions) == 0 do
     [
       "Badania lekarskie  na podstawie skierowania otrzymanego z Centrum Rekrutacji AGH można zrealizować nieodpłatnie jedynie w Małopolskim Ośrodku Medycyny Pracy – szczegóły na stronie www.bhp.agh.edu.pl/kandydaci. W pozostałych Poradniach Medycyny Pracy badania te mogą być wykonane, ale odpłatnie.Uzyskane od lekarza zaświadczenie o braku przeciwwskazań zdrowotnych do podjęcia studiów na wybranym kierunku należy dostarczyć do Dziekanatu Wydziału prowadzącego dany kierunek najpóźniej do dnia rozpoczęcia zajęć. Niedopełnienie tego obowiązku może skutkować skreśleniem z listy studentów.",
@@ -14,7 +15,7 @@ defmodule InzynjerkaModel.Chatbot do
       "Osoby posiadające polskie obywatelstwo są przyjmowane tylko i wyłącznie na zasadach obowiązujących Polaków.",
       "Istnieje możliwość przystąpienia do rekrutacji w drugim cyklu rekrutacyjnym na ten sam kierunek co w pierwszym cyklu. W tym celu należy jeszcze raz złożyć i opłacić deklarację kierunku oraz przesłać wszystkie wymagane dokumenty."
     ] else
-      questions |> Enum.map(fn question -> question["content"] end)
+      questions |> Enum.map(fn question -> question.content end)
     end
     questions
 #    [
@@ -33,12 +34,12 @@ defmodule InzynjerkaModel.Chatbot do
     max_index = Nx.argmax(similarity) |> Nx.to_number()
     max_question = get_questions() |> Enum.at(max_index)
     question = Questions.get_question_by_question(max_question) || %{}
-    metadata = %{question_id: question["id"], max_index: max_index, max_value: max_value}
+    metadata = %{question_id: question.id, max_index: max_index, max_value: max_value}
     cond do
       max_value < low -> {:confidence_too_low, metadata}
-      question["answer"] == nil -> {:no_answer, metadata}
-      max_value < high -> {:confidence_low, question["answer"], metadata}
-      true -> {:ok, question["answer"], metadata}
+      question.answer == nil -> {:no_answer, metadata}
+      max_value < high -> {:confidence_low, question.answer, metadata}
+      true -> {:ok, question.answer, metadata}
     end
   end
 

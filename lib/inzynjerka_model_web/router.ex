@@ -47,6 +47,13 @@ defmodule InzynjerkaModelWeb.Router do
     live "/model_settings/:id", ModelSettingsLive.Show, :show
     live "/model_settings/:id/show/edit", ModelSettingsLive.Show, :edit
 
+    live "/questions", QuestionLive.Index, :index
+    live "/questions/new", QuestionLive.Index, :new
+    live "/questions/:id/edit", QuestionLive.Index, :edit
+
+    live "/questions/:id", QuestionLive.Show, :show
+    live "/questions/:id/show/edit", QuestionLive.Show, :edit
+
   end
 
   # Other scopes may use custom stacks.
