@@ -24,7 +24,7 @@ defmodule InzynjerkaModelWeb.ModelSettingsLive.FormComponent do
         <.input field={@form[:high_threshold]} type="number" label="High threshold" />
         <.input field={@form[:name]} type="text" label="Name" />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Model settings</.button>
+          <button phx-disable-with="Saving...">Save Model settings</button>
         </:actions>
       </.simple_form>
     </div>
