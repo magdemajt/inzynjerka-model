@@ -1,8 +1,29 @@
-/*@import "tailwindcss/base";*/
-/*@import "tailwindcss/components";*/
-/*@import "tailwindcss/utilities";*/
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+html {
+    scrollbar-gutter: unset !important;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+}
+
+button[aria-label="close"] {
+    border: none;
+}
+
+.header {
+    background-color: #001529;
+    height: 5rem;
+}
+
+.nav-li, .nav-li > a:hover {
+    color:rgba(255,255,255, 0.85);
+}
+
+#main-container {
+    padding-top: 3rem;
+}
 
 button {
     line-height: 1.5715;
@@ -56,7 +77,6 @@ button[disabled] > * {
     pointer-events: none;
 }
 
-/*TODO fix important*/
 input[type='checkbox']:checked, input[type='checkbox']:active {
     background-color: #1890ff!important;
     border-color: #1890ff!important;
