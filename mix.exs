@@ -54,7 +54,8 @@ defmodule InzynjerkaModel.MixProject do
       {:nx, "~> 0.5.1"},
       {:exla, "~> 0.5.1"},
       {:httpoison, "~> 2.0"},
-      {:phoenix_live_session, "~> 0.1"}
+      {:phoenix_live_session, "~> 0.1"},
+      {:mock, "~> 0.3.8"}
     ]
   end
 
