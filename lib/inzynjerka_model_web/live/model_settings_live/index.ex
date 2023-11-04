@@ -4,17 +4,16 @@ defmodule InzynjerkaModelWeb.ModelSettingsLive.Index do
   alias InzynjerkaModel.Settings
   alias InzynjerkaModel.Settings.ModelSettings
 
-  @impl true
-  def mount(params, session, socket) do
-    session |> case do
-     %{token: token} -> token
-      _other -> nil
-    end |> InzynjerkaModelWeb.AuthController.is_admin |> case do
-      true -> {:ok, stream(socket, :model_settings_collection, Settings.list_model_settings())}
-      _other -> {:ok, stream(socket, :model_settings_collection, [])}
-    end
 
+  @impl true
+  def mount( params, session, socket) do
+    token = get_connect_params(socket)["token"]
+    InzynjerkaModelWeb.AuthController.is_admin(token) |> case do
+         true -> {:ok, stream(socket, :model_settings_collection, Settings.list_model_settings())}
+         _other -> {:ok, stream(socket, :model_settings_collection, [])}
+    end
   end
+
 
   @impl true
   def handle_params(params, _url, socket) do

@@ -15,7 +15,11 @@
   <:item title="Name"><%= @model_settings.name %></:item>
 </.list>
 
-<.back navigate={~p"/model_settings"}>Back to model_settings</.back>
+<br/>
+<br/>
+<.link href={~p"/model_settings"}>
+  <button>Back to model settings</button>
+</.link>
 
 <.modal :if={@live_action == :edit} id="model_settings-modal" show on_cancel={JS.patch(~p"/model_settings/#{@model_settings}")}>
   <.live_component

@@ -22,7 +22,6 @@ defmodule InzynjerkaModelWeb.AuthLoaderLive.Index do
 
   @impl true
   def handle_event("update_token", %{"token" => token}, socket) do
-    IO.inspect("Received token: #{token}")
     session = socket.assigns[:session]
     session = Map.put(session, :token, token)
     {:noreply, push_redirect(socket, to: ~p"/home", replace: true)}

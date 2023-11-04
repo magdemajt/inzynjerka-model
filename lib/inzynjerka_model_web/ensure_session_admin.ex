@@ -9,8 +9,6 @@ defmodule InzynjerkaModelWeb.EnsureQueryParamAdmin do
   def call(conn, _opts) do
     params = fetch_query_params(conn)
     token = params.params["token"]
-    IO.inspect params.params["token"]
-    IO.inspect InzynjerkaModelWeb.AuthController.is_admin(token)
     if token do
       InzynjerkaModelWeb.AuthController.is_admin(token) |> case do
         true -> conn
@@ -26,4 +24,5 @@ defmodule InzynjerkaModelWeb.EnsureQueryParamAdmin do
       |> halt()
     end
   end
+
 end

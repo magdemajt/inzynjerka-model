@@ -19,12 +19,7 @@ defmodule InzynjerkaModelWeb.AuthController do
   def is_admin(token) do
     secret = get_config(:role_service_secret)
     role_service_url = get_config(:role_service_url)
-    IO.inspect "TODOTODO"
-    IO.inspect secret
-    IO.inspect role_service_url
-    IO.inspect token
     response = HTTPoison.post(role_service_url, "{\"body\": \"json\"}", [{"authorization", "Bearer "<>token}, {"secret", secret}, {"Content-type", "text/plain"}])
-    IO.inspect response
     response |> case do
       {:ok, %HTTPoison.Response{status_code: 200, body: %{ role: role }}} -> role == :admin
       _other -> true
@@ -37,6 +32,7 @@ defmodule InzynjerkaModelWeb.AuthController do
   end
 
   def ensure_admin('conn', conn) do
+
     auth_token = Conn.get_req_header(conn, "authorization") |> is_admin |> maybe_halt(conn)
   end
 end

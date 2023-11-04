@@ -15,7 +15,11 @@
   <:item title="Language"><%= @question.language %></:item>
 </.list>
 
-<.back navigate={~p"/questions"}>Back to questions</.back>
+<br/>
+<br/>
+<.link href={~p"/questions"}>
+  <button>Back to questions</button>
+</.link>
 
 <.modal :if={@live_action == :edit} id="question-modal" show on_cancel={JS.patch(~p"/questions/#{@question}")}>
   <.live_component
