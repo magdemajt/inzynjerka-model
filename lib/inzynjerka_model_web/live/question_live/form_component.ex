@@ -24,7 +24,7 @@ defmodule InzynjerkaModelWeb.QuestionLive.FormComponent do
         <.input field={@form[:is_displayed]} type="checkbox" label="Is displayed" />
         <.input field={@form[:language]} type="text" label="Language" />
         <:actions>
-          <.button phx-disable-with="Saving...">Save Question</.button>
+          <button phx-disable-with="Saving...">Save Question</button>
         </:actions>
       </.simple_form>
     </div>

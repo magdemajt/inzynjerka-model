@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="css Ant Design styles">
+    <list default="true" id="58403de8-459d-4c9b-93fb-bd68416d4683" name="Changes" comment="css model navbar style">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/index.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/index.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/model_settings_form.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/model_settings_form.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/show.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/controllers/model_settings_html/show.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/form_component.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/form_component.ex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/index.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/index.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/show.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/model_settings_live/show.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/index.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/index.html.heex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/show.html.heex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/show.html.heex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/allow_all_frames.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/allow_all_frames.ex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/form_component.ex" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inzynjerka_model_web/live/question_live/form_component.ex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +99,12 @@
       <workItem from="1696603319718" duration="12086000" />
       <workItem from="1697809264584" duration="4250000" />
       <workItem from="1697818720686" duration="2104000" />
-      <workItem from="1698437378424" duration="4362000" />
+      <workItem from="1698437378424" duration="4987000" />
+      <workItem from="1698522945207" duration="8370000" />
+      <workItem from="1698679355301" duration="1821000" />
+      <workItem from="1698954548136" duration="2358000" />
+      <workItem from="1698960441597" duration="1255000" />
+      <workItem from="1699085408798" duration="3639000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1687540693038</created>
@@ -144,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697816814617</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="css model navbar style">
+      <created>1698538475432</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698538475432</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +173,8 @@
     <MESSAGE value="Fixes to this changes to fixes" />
     <MESSAGE value="Changed session plug to be query plug" />
     <MESSAGE value="css Ant Design styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="css Ant Design styles" />
+    <MESSAGE value="css model navbar style" />
+    <option name="LAST_COMMIT_MESSAGE" value="css model navbar style" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
