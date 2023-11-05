@@ -26,6 +26,26 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 
 let eventQueue= []
 
+
+const addTokenToHref = () => {
+  let token = localStorage.getItem("token");
+  let links = document.querySelectorAll('a');
+  links.forEach(link => {
+    let href = link.getAttribute('href');
+    link.setAttribute('href', `${href}?token=${token}`);
+  })
+}
+
+// https://itsopensource.com/how-to-call-a-function-on-URL-change-in-javascript/
+(function(history){
+  var pushState = history.pushState;
+  history.pushState = function(state) {
+    addTokenToHref()
+    return pushState.apply(history, arguments);
+  };
+})(window.history);
+
+
 window.onload = () => {
   document.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', event => {
