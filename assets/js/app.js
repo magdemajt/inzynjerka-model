@@ -27,27 +27,35 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 let eventQueue= []
 
 
-const addTokenToHref = () => {
-  let token = localStorage.getItem("token");
+const addTokenToParams = () => {
+  let token = localStorage.getItem("token") || null;
   let links = document.querySelectorAll('a');
   links.forEach(link => {
     let href = link.getAttribute('href');
     link.setAttribute('href', `${href}?token=${token}`);
   })
+
+  let pathElements = document.querySelectorAll('[path]');
+  pathElements.forEach(element => {
+    let path = element.getAttribute('path');
+    element.setAttribute('path', `${path}?token=${token}`);
+  })
 }
+
+
 
 // https://itsopensource.com/how-to-call-a-function-on-URL-change-in-javascript/
 (function(history){
   var pushState = history.pushState;
   history.pushState = function(state) {
-    addTokenToHref()
+    addTokenToParams()
     return pushState.apply(history, arguments);
   };
 })(window.history);
 
 
 window.onload = () => {
-  addTokenToHref()
+  addTokenToParams()
   document.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', event => {
       event.preventDefault();
@@ -71,6 +79,19 @@ window.addEventListener('message', event => {
 })
 
 let Hooks = {};
+
+Hooks.AddToken = {
+  mounted() {
+    addTokenToParams()
+  },
+  destroyed(){
+    addTokenToParams()
+  },
+  updated(){
+    addTokenToParams()
+  }
+}
+
 Hooks.GetToken = {
   mounted() {
 

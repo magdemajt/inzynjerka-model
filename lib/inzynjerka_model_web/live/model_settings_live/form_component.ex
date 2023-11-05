@@ -18,6 +18,7 @@ defmodule InzynjerkaModelWeb.ModelSettingsLive.FormComponent do
         phx-target={@myself}
         phx-change="validate"
         phx-submit="save"
+        phx-hook="AddToken"
       >
         <.input field={@form[:active]} type="checkbox" label="Active" />
         <.input field={@form[:low_threshold]} type="number" label="Low threshold" />

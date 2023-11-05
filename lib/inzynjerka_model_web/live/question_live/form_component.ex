@@ -18,6 +18,7 @@ defmodule InzynjerkaModelWeb.QuestionLive.FormComponent do
         phx-target={@myself}
         phx-change="validate"
         phx-submit="save"
+        phx-hook="AddToken"
       >
         <.input field={@form[:content]} type="text" label="Content" />
         <.input field={@form[:answer]} type="text" label="Answer" />
