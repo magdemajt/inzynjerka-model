@@ -19,8 +19,9 @@ defmodule InzynjerkaModelWeb.ChatbotController do
   defp chatbot_to_measure(conn, body) do
     similarity = Nx.Serving.batched_run(ChatApi.Serving, body["message"])
     response = Settings.get_most_recent_active_setting() |> case do
-      nil -> Chatbot.get_answer_from_similarity(similarity, %{low_threshold: 50, high_threshold: 80})
-      model_settings -> Chatbot.get_answer_from_similarity(similarity, model_settings)
+      nil -> Chatbot.get_answer_from_similarity(similarity, %{"low_threshold" => 50, "high_threshold" => 80})
+      model_settings ->
+        Chatbot.get_answer_from_similarity(similarity, %{"low_threshold" => model_settings.low_threshold, "high_threshold" => model_settings.high_threshold})
     end
     response = response |> case do
       {:confidence_too_low, metadata} ->
