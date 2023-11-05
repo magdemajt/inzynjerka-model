@@ -28,18 +28,20 @@ let eventQueue= []
 
 
 const addTokenToParams = () => {
-  let token = localStorage.getItem("token") || null;
-  let elements = [...document.querySelectorAll('a'), ...document.querySelectorAll('[path]')];
-  console.log(elements)
-  elements.forEach(element => {
-    let attr = element.tagName === 'A' ? 'href' : 'path';
-    let url = new URL(element.getAttribute(attr), window.location.origin);
+  let token = localStorage.getItem("token") || "";
+  if (token === "") return
+
+
+  let links = [...document.querySelectorAll('a'), ...document.querySelectorAll('[path]')];
+  links.forEach(link => {
+    let attr = link.tagName === 'A' ? 'href' : 'path';
+    let url = new URL(link.getAttribute(attr), window.location.origin);
     let params = new URLSearchParams(url.search);
 
-    if (!params.has('token')) {
+    if (!params.get('token')) {
       params.set('token', token);
       url.search = params.toString();
-      element.setAttribute(attr, url.toString());
+      link.setAttribute(attr, url.toString());
     }
   })
 }
