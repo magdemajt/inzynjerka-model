@@ -47,6 +47,7 @@ const addTokenToHref = () => {
 
 
 window.onload = () => {
+  addTokenToHref()
   document.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', event => {
       event.preventDefault();
