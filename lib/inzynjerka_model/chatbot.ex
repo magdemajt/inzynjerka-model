@@ -32,14 +32,12 @@ defmodule InzynjerkaModel.Chatbot do
   def get_answer_from_similarity(similarity, %{"low_threshold" => low, "high_threshold" => high}) do
     max_value = Nx.reduce_max(similarity) |> Nx.to_number() |> Kernel.*(100)
     max_index = Nx.argmax(similarity) |> Nx.to_number()
-    max_question = get_questions() |> Enum.at(max_index)
-    IO.puts("max question")
-    IO.puts(max_question)
+    max_question = Questions.list_questions() |> Enum.map(fn q -> q.content end) |> Enum.at(max_index)
     question = Questions.get_question_by_question(max_question) || %{}
     metadata = %{question_id: question.id, max_index: max_index, max_value: max_value}
     cond do
-      max_value < low -> {:confidence_too_low, metadata}
-      question.answer == nil -> {:no_answer, metadata}
+      max_value < low -> {:confidence_too_low, "Niestety nie znam odpowiedzi", metadata}
+      question.answer == nil -> {:no_answer, "Niestety nie znam odpowiedzi", metadata}
       max_value < high -> {:confidence_low, question.answer, metadata}
       true -> {:ok, question.answer, metadata}
     end
