@@ -103,6 +103,6 @@ defmodule InzynjerkaModel.Settings do
   end
 
   def get_most_recent_active_setting() do
-    Repo.one(from ms in ModelSettings, where: ms.active == true, order_by: [desc: ms.inserted_at])
+    Repo.one(from ms in ModelSettings, where: ms.active == true, order_by: [desc: ms.inserted_at], limit: 1)
   end
 end
