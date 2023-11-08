@@ -8,13 +8,20 @@ defmodule InzynjerkaModelWeb.Router do
     plug :put_root_layout, {InzynjerkaModelWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
-    plug InzynjerkaModelWeb.AllowAllFrames
-
+    plug :allow_frames
   end
 
   pipeline :api do
     plug :accepts, ["json"]
     plug InzynjerkaModelWeb.CORS
+  end
+
+  pipeline :allow_frames do
+    plug InzynjerkaModelWeb.AllowAllFrames
+  end
+
+  pipeline :add_token_to_session do
+    plug InzynjerkaModelWeb.AddTokenToSession
   end
 
   pipeline :only_guest_live do
@@ -30,13 +37,13 @@ defmodule InzynjerkaModelWeb.Router do
   end
 
   scope "/", InzynjerkaModelWeb do
-    pipe_through [:browser, :only_guest_live]
+    pipe_through [:browser, :add_token_to_session, :only_guest_live ]
 
     live "/", AuthLoaderLive.Index, :index
   end
 
   scope "/", InzynjerkaModelWeb do
-    pipe_through [:browser, :protected_live]
+    pipe_through [:browser,:add_token_to_session, :protected_live]
 
     live "/home", AuthLoaderLive.Home, :index
 

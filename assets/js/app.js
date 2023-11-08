@@ -26,54 +26,6 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 
 let eventQueue= []
 
-
-const addTokenToParams = () => {
-  let token = localStorage.getItem("token") || "";
-  if (token === "") return
-
-
-  let links = [...document.querySelectorAll('a'), ...document.querySelectorAll('[path]')];
-  links.forEach(link => {
-    let attr = link.tagName === 'A' ? 'href' : 'path';
-    let url = new URL(link.getAttribute(attr), window.location.origin);
-    let params = new URLSearchParams(url.search);
-
-    if (!params.get('token')) {
-      params.set('token', token);
-      url.search = params.toString();
-      link.setAttribute(attr, url.toString());
-    }
-  })
-}
-
-
-
-// https://itsopensource.com/how-to-call-a-function-on-URL-change-in-javascript/
-(function(history){
-  var pushState = history.pushState;
-  history.pushState = function(state) {
-    addTokenToParams()
-    return pushState.apply(history, arguments);
-  };
-})(window.history);
-
-
-window.onload = () => {
-  addTokenToParams()
-  document.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', event => {
-      event.preventDefault();
-      console.log(event, 'eventy')
-      let params = window.location.search;
-      let dest = a.getAttribute('href') + params;
-      console.log(params, dest)
-      setTimeout(() => {
-        location.replace(dest)
-      }, 100)
-    })
-  })
-}
-
 window.addEventListener('message', event => {
   if (typeof event.data === 'object' && event.data?.token) {
     const token = event.data.token;
@@ -84,15 +36,14 @@ window.addEventListener('message', event => {
 
 let Hooks = {};
 
-Hooks.AddToken = {
-  mounted() {
-    addTokenToParams()
-  },
-  destroyed(){
-    addTokenToParams()
-  },
-  updated(){
-    addTokenToParams()
+Hooks.RedirectWithToken = {
+  mounted(){
+    this.el.addEventListener('click', e => {
+      e.preventDefault();
+      // let token = window.localStorage.getItem('token'); // @TODO
+      // window.location.href = `http://localhost:4000/getting-started?token=${token}`;
+      window.location.href = `http://localhost:4000/getting-started`;
+    });
   }
 }
 

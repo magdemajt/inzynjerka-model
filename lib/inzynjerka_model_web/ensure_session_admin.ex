@@ -7,8 +7,11 @@ defmodule InzynjerkaModelWeb.EnsureQueryParamAdmin do
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    params = fetch_query_params(conn)
-    token = params.params["token"]
+    token = get_session(conn, :token)
+    IO.inspect "ADMIN"
+    IO.inspect get_session(conn)
+    IO.inspect token
+
     if token do
       InzynjerkaModelWeb.AuthController.is_admin(token) |> case do
         true -> conn
