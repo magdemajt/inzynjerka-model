@@ -209,4 +209,11 @@ defmodule InzynjerkaModel.Chatbot.Questions do
   def list_questions_without_answers do
     Repo.all(from q in Question, where: is_nil(q.answer))
   end
+
+  def question_ask_count do
+#    Group question_asks by question_id, then count the number of question_asks in each group, join questions (to get name) and order by count desc
+    inner_query = subquery(from qa in QuestionAsk, group_by: qa.question_id, select: {qa.question_id, count(qa.question_id)})
+    query = from q in Question, join: q in ^inner_query, on: q.id == ^inner_query.question_id, order_by: ^inner_query.count desc, select: {q.content, ^inner_query.count, ^inner_query.question_id}
+    Repo.all(query)
+  end
 end
