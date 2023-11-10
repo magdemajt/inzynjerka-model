@@ -24,9 +24,9 @@ defmodule InzynjerkaModelWeb.ChatbotController do
         Chatbot.get_answer_from_similarity(similarity, %{"low_threshold" => model_settings.low_threshold, "high_threshold" => model_settings.high_threshold})
     end
     response = response |> case do
-      {:confidence_too_low, metadata} ->
+      {:confidence_too_low, answer, metadata} ->
         new_question = Questions.create_question(%{language: "Polish", content: body["message"], is_displayed: false, answer: nil})
-        {:confidence_too_low, %{question_id: new_question.id, max_value: metadata.max_value, max_index: metadata.max_index}}
+        {:confidence_too_low, answer, %{question_id: new_question.id, max_value: metadata.max_value, max_index: metadata.max_index}}
       _ -> response
     end
 

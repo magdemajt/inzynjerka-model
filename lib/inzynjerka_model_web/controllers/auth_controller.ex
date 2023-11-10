@@ -35,4 +35,27 @@ defmodule InzynjerkaModelWeb.AuthController do
 
     auth_token = Conn.get_req_header(conn, "authorization") |> is_admin |> maybe_halt(conn)
   end
+
+  def authenticate(conn, params) do
+    # redirect to query param redirect
+
+    redirect_path = params["redirect"] |> case do
+      "model_settings" -> "/model_settings"
+      "questions" -> "/questions"
+      _other -> :other
+    end
+
+    if redirect_path == :other do
+  # throw 400
+      send_resp(conn, 400, "")
+    end
+
+    token = params["token"]
+
+    if token do
+      conn |> put_session(:token, token) |> redirect(to: redirect_path)
+    else
+      conn |> redirect(to: redirect_path)
+    end
+  end
 end

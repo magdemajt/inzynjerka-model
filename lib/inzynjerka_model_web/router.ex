@@ -37,13 +37,15 @@ defmodule InzynjerkaModelWeb.Router do
   end
 
   scope "/", InzynjerkaModelWeb do
-    pipe_through [:browser, :add_token_to_session, :only_guest_live ]
+    pipe_through [:browser, :add_token_to_session]
 
-    live "/", AuthLoaderLive.Index, :index
+    get "/", AuthController, :authenticate
   end
 
   scope "/", InzynjerkaModelWeb do
-    pipe_through [:browser,:add_token_to_session, :protected_live]
+    pipe_through [:browser, :protected_live]
+
+    get "/auth", AuthController, :auth
 
     live "/home", AuthLoaderLive.Home, :index
 
