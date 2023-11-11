@@ -215,4 +215,12 @@ defmodule InzynjerkaModel.Chatbot.Questions do
     inner_query = subquery(from qa in QuestionAsk, group_by: qa.question_id, select: {qa.question_id, count(qa.question_id)})
     Repo.all(from q in Question, join: qa in ^inner_query, on: q.id == qa.question_id, order_by: [desc: qa.count], select: {q.content, qa.count, qa.question_id})
   end
+
+  def list_question_answers do
+    inner_query = subquery(from qa in QuestionAsk)
+    Repo.all(from q in Question,
+             join: qa in ^inner_query,
+             on: q.id == qa.question_id,
+             select: %{id: qa.id, question_id: qa.question_id, content: q.content, answer: q.answer, similarity: qa.similarity, response_delay: qa.response_delay})
+  end
 end

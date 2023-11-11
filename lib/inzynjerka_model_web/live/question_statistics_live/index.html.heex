@@ -1,44 +1,27 @@
 <.header>
-  Listing Questions
+  Listing Question Asked
   <:actions>
-    <.link patch={~p"/questions/new"}>
-      <button>New Question</button>
+      <.link patch={~p"/question_statistics"}>
+        <button>Question Answers</button>
+      </.link>
+    <.link patch={~p"/question_statistics/popularity"}>
+        <button>Most Popular Questions</button>
     </.link>
+    <.link patch={~p"/question_statistics/not_answered"}>
+      <button>Most Popular Not Answered</button>
+    </.link>
+
   </:actions>
 </.header>
 
 <.table
-  id="questions"
-  rows={@streams.questions}
-  row_click={fn {_id, question} -> JS.navigate(~p"/questions/#{question}") end}
+  id="question_asks"
+  rows={@streams.question_asks}
 >
-  <:col :let={{_id, question}} label="Content"><%= question.content %></:col>
-  <:col :let={{_id, question}} label="Answer"><%= question.answer %></:col>
-  <:col :let={{_id, question}} label="Is displayed"><%= question.is_displayed %></:col>
-  <:col :let={{_id, question}} label="Language"><%= question.language %></:col>
-  <:action :let={{_id, question}}>
-    <div class="sr-only">
-      <.link navigate={~p"/questions/#{question}"}>Show</.link>
-    </div>
-    <.link patch={~p"/questions/#{question}/edit"}>Edit</.link>
-  </:action>
-  <:action :let={{id, question}}>
-    <.link
-      phx-click={JS.push("delete", value: %{id: question.id}) |> hide("##{id}")}
-      data-confirm="Are you sure?"
-    >
-      Delete
-    </.link>
-  </:action>
+  <:col :let={{_id, question_ask}} label="ID"><%= question_ask.id %></:col>
+  <:col :let={{_id, question_ask}} label="Question ID"><%= question_ask.question_id %></:col>
+  <:col :let={{_id, question_ask}} label="Question"><%= question_ask.content %></:col>
+  <:col :let={{_id, question_ask}} label="Answer"><%= question_ask.answer %></:col>
+  <:col :let={{_id, question_ask}} label="Similarity"><%= question_ask.similarity %>%</:col>
+  <:col :let={{_id, question_ask}} label="Response Delay"><%= question_ask.response_delay %>ns</:col>
 </.table>
-
-<.modal :if={@live_action in [:new, :edit]} id="question-modal" show on_cancel={JS.patch(~p"/questions")}>
-  <.live_component
-    module={InzynjerkaModelWeb.QuestionLive.FormComponent}
-    id={@question.id || :new}
-    title={@page_title}
-    action={@live_action}
-    question={@question}
-    patch={~p"/questions"}
-  />
-</.modal>

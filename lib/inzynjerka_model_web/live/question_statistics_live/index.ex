@@ -1,4 +1,4 @@
-defmodule InzynjerkaModelWeb.QuestionStatsticsLive.Index do
+defmodule InzynjerkaModelWeb.QuestionStatisticsLive.Index do
   use InzynjerkaModelWeb, :live_view
 
   alias InzynjerkaModel.Chatbot.Questions
@@ -6,7 +6,7 @@ defmodule InzynjerkaModelWeb.QuestionStatsticsLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :questions, Questions.list_questions())}
+    {:ok, stream(socket, :question_asks, Questions.list_question_answers())}
   end
 
 

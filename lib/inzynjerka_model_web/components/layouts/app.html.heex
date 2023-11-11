@@ -1,15 +1,15 @@
 <header id="header" class="text-white header flex items-center" backgroundColor="#001529">
       <nav class="w-full">
         <ul class="flex w-full items-center justify-around gap-4 font-semibold leading-6 text-zinc-900">
-          <li id="back" class="nav-li" phx-hook="RedirectWithToken">
-            <a href="/" class="hover:text-zinc-700">Back</a>
-          </li>
           <li class="nav-li">
             <a href="/model_settings" class="hover:text-zinc-700">Model Settings</a>
           </li>
           <li class="nav-li">
             <a href="/questions" class="hover:text-zinc-700">Questions</a>
           </li>
+          <li class="nav-li">
+              <a href="/question_statistics" class="hover:text-zinc-700">Question Statistics</a>
+            </li>
         </ul>
       </nav>
       <.flash_group flash={@flash} />

@@ -13,7 +13,7 @@ defmodule InzynjerkaModel.Chatbot.Questions.QuestionAsk do
   @doc false
   def changeset(question_ask, attrs) do
     question_ask
-    |> cast(attrs, [:similarity, :response_delay])
-    |> validate_required([:similarity, :response_delay])
+    |> cast(attrs, [:similarity, :response_delay, :question_id])
+    |> validate_required([:similarity, :response_delay, :question_id])
   end
 end

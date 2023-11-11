@@ -11,8 +11,7 @@ defmodule InzynjerkaModelWeb.ChatbotController do
     {time, result} = :timer.tc(fn -> chatbot_to_measure(conn, body) end)
     {result, chatbot_response} = result
     {_, _, metadata} = chatbot_response
-    _question = Questions.create_question_ask(%{similarity: metadata.max_value, response_delay: time, question_id: metadata.question_id})
-
+    _question = Questions.create_question_ask(%{similarity: trunc(metadata.max_value), response_delay: time, question_id: metadata.question_id})
     result
   end
 
@@ -29,7 +28,6 @@ defmodule InzynjerkaModelWeb.ChatbotController do
         {:confidence_too_low, answer, %{question_id: new_question.id, max_value: metadata.max_value, max_index: metadata.max_index}}
       _ -> response
     end
-
     {render(conn, :chatbot, response: response), response}
   end
 end
