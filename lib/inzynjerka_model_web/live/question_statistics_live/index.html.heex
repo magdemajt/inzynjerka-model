@@ -8,7 +8,7 @@
         <button>Most Popular Questions</button>
     </.link>
     <.link patch={~p"/question_statistics/not_answered"}>
-      <button>Most Popular Not Answered</button>
+      <button>Most Popular Not Answered Questions</button>
     </.link>
 
   </:actions>
@@ -19,11 +19,11 @@
   rows={@streams.question_asks}
 >
   <:col :let={{_id, question_ask}} label="ID"><%= question_ask.id %></:col>
-  <:col :let={{_id, question_ask}} label="Question ID"><%= question_ask.question_id %></:col>
+  <:col :let={{_id, question_ask}} label="Question_ID"><%= question_ask.question_id %></:col>
   <:col :let={{_id, question_ask}} label="Question"><%= question_ask.content %></:col>
   <:col :let={{_id, question_ask}} label="Answer"><%= question_ask.answer %></:col>
   <:col :let={{_id, question_ask}} label="Similarity"><%= question_ask.similarity %>%</:col>
-  <:col :let={{_id, question_ask}} label="Response Delay"><%= question_ask.response_delay %>ns</:col>
+  <:col :let={{_id, question_ask}} label="Response_Delay"><%= question_ask.response_delay %>ns</:col>
     <:action :let={{id, question_ask}}>
       <.link
         phx-click={JS.push("delete", value: %{id: question_ask.id}) |> hide("##{id}")}

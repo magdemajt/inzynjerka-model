@@ -85,22 +85,47 @@ let Hooks = {};
 Hooks.MostFrequently = {
   mounted() {
     const ctx = this.el
-    ctx.style.maxHeight = '700px'; // Set the maximum height of the chart
+    ctx.style.maxHeight = '700px';
     const data = {
       type: 'bar',
       data: {
         labels: [],
-        datasets: [{data: [], label: 'Most Frequently Asked Questions', backgroundColor: BACKGROUND_COLOR, borderColor: BORDER_COLOR, }]
+        datasets: [{data: [], label: labelMostFrequently({limit:10})(), backgroundColor: BACKGROUND_COLOR, borderColor: BORDER_COLOR, }]
       }};
 
     const chart = new Chart(ctx, data);
     this.handleEvent('most-frequently', (payload) => {
-      chart.data.labels = payload.most_frequently.map(({content}) => content);
-      chart.data.datasets[0].data = payload.most_frequently.map(({count}) => count);
-      chart.update();
-    })
-  },
+      updateChart(chart, payload, labelMostFrequently(payload))
+    })  },
 }
+
+Hooks.NotAnswered = {
+  mounted() {
+    const ctx = this.el
+    ctx.style.maxHeight = '700px';
+    const data = {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [{data: [], label: labelNotAnswered({limit:10})(), backgroundColor: BACKGROUND_COLOR, borderColor: BORDER_COLOR, }]
+      }};
+
+    const chart = new Chart(ctx, data);
+    this.handleEvent('not-answered', (payload) => {
+      updateChart(chart, payload, labelNotAnswered(payload))
+    })  },
+}
+
+const updateChart = (chart, payload, updateLabel) => {
+  chart.data.labels = payload.data.map(({ content }) => content);
+  chart.data.datasets[0].data = payload.data.map(({ count }) => count);
+  chart.data.datasets[0].label = updateLabel(payload);
+  chart.update();
+}
+
+const labelMostFrequently = (payload) => () => `TOP ${payload.limit} Frequently Asked Questions`;
+const labelNotAnswered = (payload) => () => `TOP ${payload.limit} Not Answered Questions`;
+
 
 Hooks.GetToken = {
   mounted() {

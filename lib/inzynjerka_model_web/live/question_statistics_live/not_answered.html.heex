@@ -1,0 +1,23 @@
+<.header>
+    Most Popular Not Answered Questions
+  <:actions>
+      <.link patch={~p"/question_statistics"}>
+        <button>Question Answers</button>
+      </.link>
+    <.link patch={~p"/question_statistics/most_frequently"}>
+        <button>Most Popular Questions</button>
+    </.link>
+      <button>Most Popular Not Answered Questions</button>
+  </:actions>
+</.header>
+<br/>
+<div>
+    <canvas id="not_answered" width="400" height="400" phx-hook="NotAnswered" data-points=""></canvas>
+    <br/>
+    <br/>
+    <div class="flex flex-row justify-center gap-4">
+          <button phx-click="not-answered" phx-value-limit="10">LIMIT 10</button>
+          <button phx-click="not-answered" phx-value-limit="20">LIMIT 20</button>
+          <button phx-click="not-answered" phx-value-limit="30">LIMIT 30</button>
+    </div>
+</div>

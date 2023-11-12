@@ -210,6 +210,19 @@ defmodule InzynjerkaModel.Chatbot.Questions do
     Repo.all(from q in Question, where: is_nil(q.answer))
   end
 
+  def not_answered(limit) do
+    inner_query = subquery(from qa in QuestionAsk,
+                           group_by: qa.question_id,
+                           select: %{question_id: qa.question_id, count: count(qa.question_id)})
+
+    Repo.all(from q in Question,
+             join: qa in ^inner_query, on: q.id == qa.question_id,
+             where: is_nil(q.answer),
+             order_by: [desc: qa.count],
+             select: %{id: q.id, content: q.content, count: qa.count},
+             limit: ^limit
+    )
+  end
 
   def most_frequently(limit) do
     inner_query = subquery(from qa in QuestionAsk,
@@ -220,12 +233,10 @@ defmodule InzynjerkaModel.Chatbot.Questions do
              join: qa in ^inner_query, on: q.id == qa.question_id,
              where: not is_nil(q.answer),
              order_by: [desc: qa.count],
-             where: qa.count > 0,
              select: %{id: q.id, content: q.content, count: qa.count},
              limit: ^limit
     )
   end
-
 
   def list_question_answers do
     inner_query = subquery(from qa in QuestionAsk)

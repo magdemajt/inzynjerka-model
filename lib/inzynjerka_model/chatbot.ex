@@ -41,7 +41,11 @@ defmodule InzynjerkaModel.Chatbot do
     max_index = Nx.argmax(similarity) |> Nx.to_number()
     max_question = get_questions(:content_question_tuple) |> Enum.at(max_index)
     {_, question} = max_question
-    metadata = %{question_id: question.id, max_index: max_index, max_value: max_value}
+
+    metadata = case question do
+      nil -> %{question_id: nil, max_index: max_index, max_value: max_value}
+      _ -> %{question_id: question.id, max_index: max_index, max_value: max_value}
+    end
     cond do
       max_value < low -> {:confidence_too_low, "Niestety nie znam odpowiedzi", metadata}
       question.answer == nil -> {:no_answer, "Niestety nie znam odpowiedzi", metadata}

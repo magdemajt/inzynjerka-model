@@ -12,6 +12,7 @@
   rows={@streams.model_settings_collection}
   row_click={fn {_id, model_settings} -> JS.navigate(~p"/model_settings/#{model_settings}") end}
 >
+  <:col :let={{_id, model_settings}} label="ID"><%= model_settings.id %></:col>
   <:col :let={{_id, model_settings}} label="Active"><%= model_settings.active %></:col>
   <:col :let={{_id, model_settings}} label="Low threshold"><%= model_settings.low_threshold %></:col>
   <:col :let={{_id, model_settings}} label="High threshold"><%= model_settings.high_threshold %></:col>

@@ -62,6 +62,7 @@ defmodule InzynjerkaModelWeb.Router do
 
     live "/question_statistics", QuestionStatisticsLive.Index, :index
     live "/question_statistics/most_frequently", QuestionStatisticsLive.MostFrequently, :most_frequently
+    live "/question_statistics/not_answered", QuestionStatisticsLive.NotAnswered, :not_answered
 
 
 
