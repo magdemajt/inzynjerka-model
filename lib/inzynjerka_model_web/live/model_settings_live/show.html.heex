@@ -1,6 +1,6 @@
 <.header>
   Model settings <%= @model_settings.id %>
-  <:subtitle>This is a model_settings record from your database.</:subtitle>
+  <:subtitle>This is a model_settings record from your database,.</:subtitle>
   <:actions>
     <.link patch={~p"/model_settings/#{@model_settings}/show/edit"} phx-click={JS.push_focus()}>
       <button>Edit model settings</button>

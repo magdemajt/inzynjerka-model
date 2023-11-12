@@ -22,7 +22,7 @@ defmodule InzynjerkaModelWeb.AuthController do
     response = HTTPoison.post(role_service_url, "{\"body\": \"json\"}", [{"authorization", "Bearer "<>token}, {"secret", secret}, {"Content-type", "text/plain"}])
     response |> case do
       {:ok, %HTTPoison.Response{status_code: 200, body: %{ role: role }}} -> role == :admin
-      _other -> true
+      _other -> true  # @TODO Mati napraw
     end
   end
 
@@ -39,23 +39,26 @@ defmodule InzynjerkaModelWeb.AuthController do
   def authenticate(conn, params) do
     # redirect to query param redirect
 
+    IO.inspect params
+
     redirect_path = params["redirect"] |> case do
       "model_settings" -> "/model_settings"
       "questions" -> "/questions"
+       "question_statistics" -> "/question_statistics"
       _other -> :other
     end
 
     if redirect_path == :other do
   # throw 400
       send_resp(conn, 400, "")
-    end
-
-    token = params["token"]
-
-    if token do
-      conn |> put_session(:token, token) |> redirect(to: redirect_path)
     else
-      conn |> redirect(to: redirect_path)
+      token = params["token"]
+
+      if token do
+        conn |> put_session(:token, token) |> redirect(to: redirect_path)
+      else
+        send_resp(conn, 401, "unauthorized")
+      end
     end
   end
 end

@@ -61,6 +61,7 @@ defmodule InzynjerkaModelWeb.Router do
     live "/questions/:id/edit", QuestionLive.Index, :edit
 
     live "/question_statistics", QuestionStatisticsLive.Index, :index
+    live "/question_statistics/most_frequently", QuestionStatisticsLive.MostFrequently, :most_frequently
 
 
 

@@ -210,11 +210,20 @@ defmodule InzynjerkaModel.Chatbot.Questions do
     Repo.all(from q in Question, where: is_nil(q.answer))
   end
 
+
   def question_ask_count do
-#    Group question_asks by question_id, then count the number of question_asks in each group, join questions (to get name) and order by count desc
-    inner_query = subquery(from qa in QuestionAsk, group_by: qa.question_id, select: {qa.question_id, count(qa.question_id)})
-    Repo.all(from q in Question, join: qa in ^inner_query, on: q.id == qa.question_id, order_by: [desc: qa.count], select: {q.content, qa.count, qa.question_id})
+    inner_query = subquery(from qa in QuestionAsk,
+                           group_by: qa.question_id,
+                           select: %{question_id: qa.question_id, count: count(qa.question_id)})
+
+    Repo.all(from q in Question,
+             join: qa in ^inner_query, on: q.id == qa.question_id,
+             where: not is_nil(q.answer),
+             order_by: [desc: qa.count],
+             where: qa.count > 0,
+             select: %{id: q.id, content: q.content, count: qa.count})
   end
+
 
   def list_question_answers do
     inner_query = subquery(from qa in QuestionAsk)
