@@ -6,7 +6,7 @@ defmodule InzynjerkaModelWeb.QuestionStatisticsLive.MostFrequently do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :most_frequently, Questions.most_frequently(10))}
+    {:ok, push_event(socket, "most-frequently", %{most_frequently: Questions.most_frequently(10)})}
   end
   @impl true
   def handle_event("most-frequently", %{"limit" => limit}, socket) do

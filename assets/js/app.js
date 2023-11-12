@@ -1,6 +1,52 @@
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
 // import "./user_socket.js"
+import Chart from "chart.js/auto";
+
+
+const BACKGROUND_COLOR = [
+  'rgba(255, 99, 132, 0.2)',
+  'rgba(255, 159, 64, 0.2)',
+  'rgba(255, 205, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)',
+  'rgba(54, 162, 235, 0.2)',
+  'rgba(153, 102, 255, 0.2)',
+  'rgba(201, 203, 207, 0.2)',
+  'rgba(255, 99, 132, 0.2)',
+  'rgba(255, 159, 64, 0.2)',
+  'rgba(255, 205, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)',
+  'rgba(54, 162, 235, 0.2)',
+  'rgba(153, 102, 255, 0.2)',
+  'rgba(201, 203, 207, 0.2)',
+  'rgba(255, 99, 132, 0.2)',
+  'rgba(255, 159, 64, 0.2)',
+  'rgba(255, 205, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)',
+  'rgba(54, 162, 235, 0.2)',
+]
+const BORDER_COLOR = [
+  'rgb(255, 99, 132)',
+  'rgb(255, 159, 64)',
+  'rgb(255, 205, 86)',
+  'rgb(75, 192, 192)',
+  'rgb(54, 162, 235)',
+  'rgb(153, 102, 255)',
+  'rgb(201, 203, 207)',
+  'rgb(255, 99, 132)',
+  'rgb(255, 159, 64)',
+  'rgb(255, 205, 86)',
+  'rgb(75, 192, 192)',
+  'rgb(54, 162, 235)',
+  'rgb(153, 102, 255)',
+  'rgb(201, 203, 207)',
+  'rgb(255, 99, 132)',
+  'rgb(255, 159, 64)',
+  'rgb(255, 205, 86)',
+  'rgb(75, 192, 192)',
+  'rgb(54, 162, 235)',
+]
+
 
 // You can include dependencies in two ways.
 //
@@ -36,35 +82,28 @@ window.addEventListener('message', event => {
 
 let Hooks = {};
 
-Hooks.RedirectWithToken = {
-  mounted(){
-    this.el.addEventListener('click', e => {
-      e.preventDefault();
-      // let token = window.localStorage.getItem('token'); // @TODO
-      // window.location.href = `http://localhost:4000/getting-started?token=${token}`;
-      window.location.href = `http://localhost:4000/getting-started`;
-    });
-  }
-}
 Hooks.MostFrequently = {
   mounted() {
+    const ctx = this.el
+    ctx.style.maxHeight = '700px'; // Set the maximum height of the chart
+    const data = {
+      type: 'bar',
+      data: {
+        labels: [],
+        datasets: [{data: [], label: 'Most Frequently Asked Questions', backgroundColor: BACKGROUND_COLOR, borderColor: BORDER_COLOR, }]
+      }};
 
-    this.handleEvent('most-frequently', (event) => {
-      // Handle the event here
-      console.log(event)
+    const chart = new Chart(ctx, data);
+    this.handleEvent('most-frequently', (payload) => {
+      chart.data.labels = payload.most_frequently.map(({content}) => content);
+      chart.data.datasets[0].data = payload.most_frequently.map(({count}) => count);
+      chart.update();
     })
   },
-  updated() {
-    this.handleEvent('most-frequently', (event) => {
-      // Handle the event here
-      console.log(event)
-    })
-  }
 }
 
 Hooks.GetToken = {
   mounted() {
-
     setInterval(() => {
       const token = eventQueue.shift();
       if (token) {
@@ -91,4 +130,3 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
-
