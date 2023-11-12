@@ -21,6 +21,11 @@ defmodule InzynjerkaModel.Chatbot.Questions do
     Repo.all(Question)
   end
 
+  def list_questions(limit) do
+    query = from Question, limit: ^limit
+    Repo.all(Question)
+  end
+
   @doc """
   Gets a single question.
 
