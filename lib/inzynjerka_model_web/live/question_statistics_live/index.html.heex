@@ -24,4 +24,12 @@
   <:col :let={{_id, question_ask}} label="Answer"><%= question_ask.answer %></:col>
   <:col :let={{_id, question_ask}} label="Similarity"><%= question_ask.similarity %>%</:col>
   <:col :let={{_id, question_ask}} label="Response Delay"><%= question_ask.response_delay %>ns</:col>
+    <:action :let={{id, question_ask}}>
+      <.link
+        phx-click={JS.push("delete", value: %{id: question_ask.id}) |> hide("##{id}")}
+        data-confirm="Are you sure?"
+      >
+        Delete
+      </.link>
+    </:action>
 </.table>

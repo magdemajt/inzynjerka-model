@@ -10,6 +10,13 @@
     <.link patch={~p"/question_statistics/not_answered"}>
       <button>Most Popular Not Answered</button>
     </.link>
-
   </:actions>
 </.header>
+<div>
+    <canvas id="most_frequently" width="400" height="400" phx-hook="MostFrequently" data-points=""></canvas>
+    <div class="flex flex-row justify-center gap-4">
+          <button phx-click="most-frequently" phx-value-limit="10">LIMIT 10</button>
+          <button phx-click="most-frequently" phx-value-limit="20">LIMIT 20</button>
+          <button phx-click="most-frequently" phx-value-limit="30">LIMIT 30</button>
+    </div>
+</div>

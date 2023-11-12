@@ -39,17 +39,21 @@ defmodule InzynjerkaModelWeb.AuthController do
   def authenticate(conn, params) do
     # redirect to query param redirect
 
-    IO.inspect params
+    valid_paths = ["model_settings", "questions", "question_statistics"]
 
     redirect_path = params["redirect"] |> case do
-      "model_settings" -> "/model_settings"
-      "questions" -> "/questions"
-       "question_statistics" -> "/question_statistics"
-      _other -> :other
+      nil -> :other
+      path -> if String.starts_with?(path, valid_paths) do
+        "/" <> path
+      else
+        :other
+      end
     end
 
+    IO.inspect redirect_path
+
     if redirect_path == :other do
-  # throw 400
+      # throw 400
       send_resp(conn, 400, "")
     else
       token = params["token"]

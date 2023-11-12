@@ -16,18 +16,6 @@ defmodule InzynjerkaModelWeb.QuestionStatisticsLive.Index do
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
 
-  defp apply_action(socket, :edit, %{"id" => id}) do
-    socket
-    |> assign(:page_title, "Edit Question")
-    |> assign(:question, Questions.get_question!(id))
-  end
-
-  defp apply_action(socket, :new, _params) do
-    socket
-    |> assign(:page_title, "New Question")
-    |> assign(:question, %Question{})
-  end
-
   defp apply_action(socket, :index, _params) do
     socket
     |> assign(:page_title, "Listing Questions")
@@ -35,13 +23,16 @@ defmodule InzynjerkaModelWeb.QuestionStatisticsLive.Index do
   end
 
   @impl true
-  def handle_info({InzynjerkaModelWeb.QuestionLive.FormComponent, {:saved, question}}, socket) do
-    {:noreply, stream_insert(socket, :questions, question)}
-  end
-
-  @impl true
   def handle_event("get_statistics", %{}, socket) do
     statistics = Questions.get_statistics()
     {:noreply, push_event(socket, "statistics", statistics)}
+  end
+
+
+  @impl true
+  def handle_event("delete", %{"id" => id}, socket) do
+    question_ask = Questions.get_question_ask!(id)
+    {:ok, _} = Questions.delete_question_ask(question_ask)
+    {:noreply, stream_delete(socket, :question_asks, question_ask)}
   end
 end

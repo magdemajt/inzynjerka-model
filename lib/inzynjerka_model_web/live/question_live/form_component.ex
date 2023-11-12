@@ -37,9 +37,9 @@ defmodule InzynjerkaModelWeb.QuestionLive.FormComponent do
     changeset = Questions.change_question(question)
 
     {:ok,
-     socket
-     |> assign(assigns)
-     |> assign_form(changeset)}
+      socket
+      |> assign(assigns)
+      |> assign_form(changeset)}
   end
 
   @impl true
@@ -62,9 +62,9 @@ defmodule InzynjerkaModelWeb.QuestionLive.FormComponent do
         notify_parent({:saved, question})
 
         {:noreply,
-         socket
-         |> put_flash(:info, "Question updated successfully")
-         |> push_patch(to: socket.assigns.patch)}
+          socket
+          |> put_flash(:info, "Question updated successfully")
+          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}
@@ -77,9 +77,9 @@ defmodule InzynjerkaModelWeb.QuestionLive.FormComponent do
         notify_parent({:saved, question})
 
         {:noreply,
-         socket
-         |> put_flash(:info, "Question created successfully")
-         |> push_patch(to: socket.assigns.patch)}
+          socket
+          |> put_flash(:info, "Question created successfully")
+          |> push_patch(to: socket.assigns.patch)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign_form(socket, changeset)}

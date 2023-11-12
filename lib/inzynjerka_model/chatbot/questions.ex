@@ -211,7 +211,7 @@ defmodule InzynjerkaModel.Chatbot.Questions do
   end
 
 
-  def question_ask_count do
+  def most_frequently(limit) do
     inner_query = subquery(from qa in QuestionAsk,
                            group_by: qa.question_id,
                            select: %{question_id: qa.question_id, count: count(qa.question_id)})
@@ -221,7 +221,9 @@ defmodule InzynjerkaModel.Chatbot.Questions do
              where: not is_nil(q.answer),
              order_by: [desc: qa.count],
              where: qa.count > 0,
-             select: %{id: q.id, content: q.content, count: qa.count})
+             select: %{id: q.id, content: q.content, count: qa.count},
+             limit: ^limit
+    )
   end
 
 

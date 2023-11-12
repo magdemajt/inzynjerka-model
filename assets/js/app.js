@@ -46,6 +46,21 @@ Hooks.RedirectWithToken = {
     });
   }
 }
+Hooks.MostFrequently = {
+  mounted() {
+
+    this.handleEvent('most-frequently', (event) => {
+      // Handle the event here
+      console.log(event)
+    })
+  },
+  updated() {
+    this.handleEvent('most-frequently', (event) => {
+      // Handle the event here
+      console.log(event)
+    })
+  }
+}
 
 Hooks.GetToken = {
   mounted() {
