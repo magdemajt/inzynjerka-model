@@ -23,7 +23,7 @@ defmodule InzynjerkaModel.Chatbot.Questions do
 
   def list_questions(limit) do
     query = from Question, limit: ^limit
-    Repo.all(Question)
+    Repo.all(query)
   end
 
   @doc """

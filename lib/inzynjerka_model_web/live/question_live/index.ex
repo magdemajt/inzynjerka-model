@@ -6,7 +6,7 @@ defmodule InzynjerkaModelWeb.QuestionLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, stream(socket, :questions, Questions.list_questions())}
+    {:ok, stream(socket, :questions, Questions.list_questions(10))}
   end
 
   @impl true
