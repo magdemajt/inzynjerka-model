@@ -16,5 +16,6 @@ defmodule InzynjerkaModel.Chatbot.Questions.Question do
     question
     |> cast(attrs, [:content, :answer, :is_displayed, :language])
     |> validate_required([:content, :is_displayed, :language])
+    |> unique_constraint(:content)
   end
 end

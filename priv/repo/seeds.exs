@@ -22,6 +22,6 @@ create_questions_for_one_answer = fn %{"questions" => questions, "answer" => ans
   )
 end
 
-with {:ok, body} <- File.read("priv/repo/seed.json"), {:ok, json} <- Jason.decode(body) do
+with {:ok, body} <- File.read("priv/repo/seed_medium.json"), {:ok, json} <- Jason.decode(body) do
   Enum.map(json, create_questions_for_one_answer)
 end
