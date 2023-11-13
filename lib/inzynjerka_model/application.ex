@@ -18,8 +18,8 @@ defmodule InzynjerkaModel.Application do
     Supervisor.start_link(children, opts)
 
 
-    {:ok, model_info} = Bumblebee.load_model({:hf, "sdadas/mmlw-retrieval-e5-large"})
-    {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "sdadas/mmlw-retrieval-e5-large"})
+    {:ok, model_info} = Bumblebee.load_model({:hf, "Voicelab/sbert-large-cased-pl"})
+    {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "Voicelab/sbert-large-cased-pl"})
 
     serving = Chatbot.qa_model(model_info, tokenizer)
 

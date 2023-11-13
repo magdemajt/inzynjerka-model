@@ -27,7 +27,7 @@ defmodule InzynjerkaModelWeb.ChatbotController do
          {:ok, new_question} = Questions.create_question(%{language: "Polish", content: body["message"], is_displayed: false, answer: nil})
          {:confidence_too_low, answer, %{question_id: new_question.id, max_value: metadata.max_value, max_index: metadata.max_index}}
        _ -> response
-     end
+    end
 
     {render(conn, :chatbot, response: response), response}
   end
