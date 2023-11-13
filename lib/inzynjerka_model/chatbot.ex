@@ -41,7 +41,6 @@ defmodule InzynjerkaModel.Chatbot do
     max_index = Nx.argmax(similarity) |> Nx.to_number()
     max_question = get_questions(:content_question_tuple) |> Enum.at(max_index)
     {_, question} = max_question
-
     metadata = case question do
       nil -> %{question_id: nil, max_index: max_index, max_value: max_value}
       _ -> %{question_id: question.id, max_index: max_index, max_value: max_value}
