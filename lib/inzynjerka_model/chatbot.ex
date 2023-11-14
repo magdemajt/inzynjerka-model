@@ -66,6 +66,7 @@ defmodule InzynjerkaModel.Chatbot do
     #ale też nie ma co robić tego co zapytanie do czatu,
     #proponuję przenieść do osobnego modułu i na modyfikację repo Questions aktualizować tokenized
     raw_answers = get_questions(:only_content)
+#    Add lazy loading, trzymać wektory w bazie danych, dla danego modelu
     tokenized = Bumblebee.apply_tokenizer(tokenizer, raw_answers)
 
     Nx.Serving.new(

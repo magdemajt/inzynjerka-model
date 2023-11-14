@@ -17,12 +17,15 @@ defmodule InzynjerkaModelWeb.AuthController do
   def is_admin(nil), do: false
 
   def is_admin(token) do
-    secret = get_config(:role_service_secret)
     role_service_url = get_config(:role_service_url)
-    response = HTTPoison.post(role_service_url, "{\"body\": \"json\"}", [{"authorization", "Bearer "<>token}, {"secret", secret}, {"Content-type", "text/plain"}])
+    response = HTTPoison.get(role_service_url, [{"Authorization", token}])
     response |> case do
-      {:ok, %HTTPoison.Response{status_code: 200, body: %{ role: role }}} -> role == :admin
-      _other -> true  # @TODO Mati napraw
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        body |> Jason.decode |> case do
+          {:ok, parsed} -> Map.get(parsed, "data") |> Map.get("role") |> Kernel.==("admin")
+          _other -> false
+        end
+      _other -> false  # @TODO Mati napraw
     end
   end
 
