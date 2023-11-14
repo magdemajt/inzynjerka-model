@@ -45,6 +45,7 @@ defmodule InzynjerkaModel.Chatbot do
       nil -> %{question_id: nil, max_index: max_index, max_value: max_value}
       _ -> %{question_id: question.id, max_index: max_index, max_value: max_value}
     end
+    IO.puts "sim: #{max_value}"
     cond do
       max_value < low -> {:confidence_too_low, "Niestety nie znam odpowiedzi", metadata}
       question.answer == nil -> {:no_answer, "Niestety nie znam odpowiedzi", metadata}
@@ -55,19 +56,22 @@ defmodule InzynjerkaModel.Chatbot do
 
   def cosine_similarity(a, b) do
     bT = Nx.transpose(b)
-    Nx.divide(Nx.dot(a, bT), Nx.multiply(Nx.LinAlg.norm(a), Nx.LinAlg.norm(b)))
+    Nx.divide(Nx.dot(a, bT), Nx.multiply(Nx.LinAlg.norm(a), Nx.LinAlg.norm(b, axes: [1])))
   end
 
   def qa_model(model_info, tokenizer) do
     %{model: model, params: params, spec: spec} = model_info
 
+    #na razie wykonuje sie tylko raz, nie bierze pod uwage modyfikacji questions,
+    #ale też nie ma co robić tego co zapytanie do czatu,
+    #proponuję przenieść do osobnego modułu i na modyfikację repo Questions aktualizować tokenized
     raw_answers = get_questions(:only_content)
+    tokenized = Bumblebee.apply_tokenizer(tokenizer, raw_answers)
 
     Nx.Serving.new(
       fn ->
         {_init_fun, predict_fun} = Axon.build(model)
 
-        tokenized = Bumblebee.apply_tokenizer(tokenizer, raw_answers)
         %{ pooled_state: answers } = predict_fun.(params, tokenized)
 
         fn inputs ->
@@ -76,7 +80,7 @@ defmodule InzynjerkaModel.Chatbot do
           similarity
         end
       end,
-      batch_size: 1,
+      batch_size: 1
     )
     |> Nx.Serving.client_preprocessing(fn input ->
       {texts, multi?} = Shared.validate_serving_input!(input, &Shared.validate_string/1)
