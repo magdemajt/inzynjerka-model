@@ -8,8 +8,6 @@ defmodule InzynjerkaModelWeb.EnsureQueryParamGuest do
 
   def call(conn, _opts) do
     token = get_session(conn, :token)
-    IO.inspect "GUEST"
-    IO.inspect token
 
     if token do
       InzynjerkaModelWeb.AuthController.is_admin(token) |> case do

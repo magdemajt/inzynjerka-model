@@ -17,11 +17,11 @@ defmodule InzynjerkaModel.Application do
 
     Supervisor.start_link(children, opts)
 
+    model_name = "sdadas/mmlw-retrieval-e5-large"
+    {:ok, model_info} = Bumblebee.load_model({:hf, model_name})
+    {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, model_name})
 
-    {:ok, model_info} = Bumblebee.load_model({:hf, "sdadas/mmlw-retrieval-e5-large"})
-    {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, "sdadas/mmlw-retrieval-e5-large"})
-
-    serving = Chatbot.qa_model(model_info, tokenizer)
+    serving = Chatbot.qa_model(model_info, tokenizer, model_name)
 
     Supervisor.stop(InzynjerkaModel.Supervisor)
 

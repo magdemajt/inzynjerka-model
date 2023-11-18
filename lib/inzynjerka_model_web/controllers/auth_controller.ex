@@ -25,7 +25,7 @@ defmodule InzynjerkaModelWeb.AuthController do
           {:ok, parsed} -> Map.get(parsed, "data") |> Map.get("role") |> Kernel.==("admin")
           _other -> false
         end
-      _other -> false  # @TODO Mati napraw
+      _other -> false
     end
   end
 
@@ -52,8 +52,6 @@ defmodule InzynjerkaModelWeb.AuthController do
         :other
       end
     end
-
-    IO.inspect redirect_path
 
     if redirect_path == :other do
       # throw 400

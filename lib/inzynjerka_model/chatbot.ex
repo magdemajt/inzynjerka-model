@@ -1,6 +1,7 @@
 defmodule InzynjerkaModel.Chatbot do
   alias Bumblebee.Shared
   alias InzynjerkaModel.Chatbot.Questions
+  alias InzynjerkaModel.Chatbot.Embeddings
 
   def get_questions(:only_content) do
     questions = Questions.list_questions()
@@ -59,13 +60,46 @@ defmodule InzynjerkaModel.Chatbot do
     Nx.divide(Nx.dot(a, bT), Nx.multiply(Nx.LinAlg.norm(a), Nx.LinAlg.norm(b, axes: [1])))
   end
 
-  def qa_model(model_info, tokenizer) do
+  @spec get_questions_without_embeddings(String.t()) :: {list(), list()}
+  defp get_questions_without_embeddings(model) do
+    questions = Embeddings.get_questions_without_embeddings_for_model(model)
+    contents = questions |> Enum.map(fn question -> Enum.at(question, 0) end)
+    question_ids = questions |> Enum.map(fn question -> Enum.at(question, 1) end)
+    {contents, question_ids}
+  end
+
+  @spec nx_tensor_to_list_of_floats(Nx.Tensor.t(), integer) :: list(float())
+  defp nx_tensor_to_list_of_floats(tensor, row) do
+    Nx.to_list(tensor) |> Enum.at(row)
+  end
+
+  @spec save_question_embeddings(Nx.Tensor.t(), list(), String.t()) :: :ok
+  def save_question_embeddings(embeddings, question_ids, model) do
+#    iterate over question_ids with index, get embeddings row for index and make a new question_embedding_from_id
+    question_ids
+    |> Enum.with_index(fn element, index -> {element, nx_tensor_to_list_of_floats(embeddings, index) } end)
+    |> Enum.map(fn {question_id, embedding} -> %{question_id: question_id, embeddings: embedding, model: model} end)
+    |> Embeddings.create_question_embeddings()
+  end
+
+
+  @spec question_embeddings_for_model(String.t()) :: {list(list()), list()}
+  def question_embeddings_for_model(model) do
+    question_embeddings = Embeddings.get_question_embeddings_for_model(model)
+    question_ids = question_embeddings |> Enum.map(fn question_embedding -> question_embedding.question_id end)
+    embeddings = question_embeddings |> Enum.map(fn question_embedding -> question_embedding.embeddings end)
+    {embeddings, question_ids}
+  end
+
+
+  def qa_model(model_info, tokenizer, model_name) do
     %{model: model, params: params, spec: spec} = model_info
 
     #na razie wykonuje sie tylko raz, nie bierze pod uwage modyfikacji questions,
     #ale też nie ma co robić tego co zapytanie do czatu,
     #proponuję przenieść do osobnego modułu i na modyfikację repo Questions aktualizować tokenized
     raw_answers = get_questions(:only_content)
+
 #    Add lazy loading, trzymać wektory w bazie danych, dla danego modelu
     tokenized = Bumblebee.apply_tokenizer(tokenizer, raw_answers)
 
@@ -73,9 +107,22 @@ defmodule InzynjerkaModel.Chatbot do
       fn ->
         {_init_fun, predict_fun} = Axon.build(model)
 
-        %{ pooled_state: answers } = predict_fun.(params, tokenized)
+        {questions, question_ids} = get_questions_without_embeddings(model_name)
+        if length(questions) > 0 do
+          tokenized = Bumblebee.apply_tokenizer(tokenizer, questions)
+          %{ pooled_state: new_embeddings } = predict_fun.(params, tokenized)
+          save_question_embeddings(new_embeddings, question_ids, model_name)
+        end
 
         fn inputs ->
+          {questions, question_ids} = get_questions_without_embeddings(model_name)
+          if length(questions) > 0 do
+            tokenized = Bumblebee.apply_tokenizer(tokenizer, questions)
+            %{ pooled_state: new_embeddings } = predict_fun.(params, tokenized)
+            save_question_embeddings(new_embeddings, question_ids, model_name)
+          end
+          {answers, answers_ids} = question_embeddings_for_model(model_name)
+          answers = Nx.tensor(answers)
           %{ pooled_state: outputs } = predict_fun.(params, inputs)
           similarity = cosine_similarity(outputs, answers)
           similarity
