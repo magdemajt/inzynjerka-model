@@ -10,5 +10,7 @@ defmodule InzynjerkaModel.Repo.Migrations.CreateQuestions do
 
       timestamps()
     end
+
+    create unique_index(:questions, [:content])
   end
 end

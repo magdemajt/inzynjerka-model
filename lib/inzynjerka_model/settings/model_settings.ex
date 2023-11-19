@@ -16,5 +16,8 @@ defmodule InzynjerkaModel.Settings.ModelSettings do
     model_settings
     |> cast(attrs, [:active, :low_threshold, :high_threshold, :name])
     |> validate_required([:active, :low_threshold, :high_threshold, :name])
+    |> validate_inclusion(:low_threshold, 0..100)
+    |> validate_inclusion(:high_threshold, 0..100)
+    |> check_constraint(:low_threshold, name: :check_thresholds)
   end
 end

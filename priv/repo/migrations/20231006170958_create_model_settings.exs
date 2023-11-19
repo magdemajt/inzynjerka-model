@@ -10,5 +10,7 @@ defmodule InzynjerkaModel.Repo.Migrations.CreateModelSettings do
 
       timestamps()
     end
+
+    create constraint(:model_settings, :check_thresholds, check: "low_threshold<=high_threshold")
   end
 end
