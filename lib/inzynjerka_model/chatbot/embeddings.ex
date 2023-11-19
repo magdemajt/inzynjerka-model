@@ -122,8 +122,10 @@ defmodule InzynjerkaModel.Chatbot.Embeddings do
 
   def get_question_embeddings_for_model(model) do
     Repo.all(from qe in QuestionEmbedding,
-             where: qe.model == ^model,
-             order_by: [desc: qe.question_id],
-             select: qe)
+            join: q in Question,
+            on: q.id == qe.question_id,
+            where: qe.model == ^model and q.is_displayed,
+            order_by: [desc: qe.question_id],
+            select: qe)
   end
 end

@@ -20,7 +20,14 @@ defmodule InzynjerkaModel.Chatbot.Questions do
       [%Question{}, ...]
 
   """
-  def list_questions do
+  def list_questions() do
+    Repo.all(from q in Question,
+            where: q.is_displayed,
+            order_by: [desc: q.id],
+            select: q)
+  end
+
+  def list_all_questions() do
     Repo.all(from q in Question,
             order_by: [desc: q.id],
             select: q)
