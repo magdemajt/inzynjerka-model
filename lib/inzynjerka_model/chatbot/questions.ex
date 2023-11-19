@@ -7,6 +7,9 @@ defmodule InzynjerkaModel.Chatbot.Questions do
   alias InzynjerkaModel.Repo
 
   alias InzynjerkaModel.Chatbot.Questions.Question
+  alias InzynjerkaModel.Chatbot.Questions.QuestionAsk
+  alias InzynjerkaModel.Chatbot.Embeddings.QuestionEmbedding
+  alias InzynjerkaModel.Chatbot.Embeddings
 
   @doc """
   Returns the list of questions.
@@ -88,6 +91,10 @@ defmodule InzynjerkaModel.Chatbot.Questions do
 
   """
   def delete_question(%Question{} = question) do
+    Repo.all(from q in QuestionEmbedding, where: q.question_id == ^question.id, select: q)
+    |> Enum.map(fn q_e -> Embeddings.delete_question_embedding(q_e) end)
+    Repo.all(from q in QuestionAsk, where: q.question_id == ^question.id, select: q)
+    |> Enum.map(fn q_e -> delete_question_ask(q_e) end)
     Repo.delete(question)
   end
 
@@ -103,8 +110,6 @@ defmodule InzynjerkaModel.Chatbot.Questions do
   def change_question(%Question{} = question, attrs \\ %{}) do
     Question.changeset(question, attrs)
   end
-
-  alias InzynjerkaModel.Chatbot.Questions.QuestionAsk
 
   @doc """
   Returns the list of question_asks.

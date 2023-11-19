@@ -37,6 +37,16 @@ defmodule InzynjerkaModel.Settings do
   """
   def get_model_settings!(id), do: Repo.get!(ModelSettings, id)
 
+  defp deactivate_other_settings(model_settings) do
+    Repo.all(ModelSettings)
+    |> Enum.map(fn other ->
+      other
+        |> ModelSettings.changeset(%{active: false})
+        |> Repo.update()
+      end)
+    model_settings
+  end
+
   @doc """
   Creates a model_settings.
 
@@ -52,6 +62,7 @@ defmodule InzynjerkaModel.Settings do
   def create_model_settings(attrs \\ %{}) do
     %ModelSettings{}
     |> ModelSettings.changeset(attrs)
+    |> deactivate_other_settings()
     |> Repo.insert()
   end
 
@@ -70,6 +81,7 @@ defmodule InzynjerkaModel.Settings do
   def update_model_settings(%ModelSettings{} = model_settings, attrs) do
     model_settings
     |> ModelSettings.changeset(attrs)
+    |> deactivate_other_settings()
     |> Repo.update()
   end
 
