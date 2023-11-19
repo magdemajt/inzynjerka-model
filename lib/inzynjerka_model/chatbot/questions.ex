@@ -18,12 +18,9 @@ defmodule InzynjerkaModel.Chatbot.Questions do
 
   """
   def list_questions do
-    Repo.all(Question)
-  end
-
-  def list_questions(limit) do
-    query = from Question, limit: ^limit
-    Repo.all(query)
+    Repo.all(from q in Question,
+            order_by: [desc: q.id],
+            select: q)
   end
 
   @doc """
