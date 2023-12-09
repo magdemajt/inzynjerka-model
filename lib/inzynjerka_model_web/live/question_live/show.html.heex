@@ -1,6 +1,7 @@
 <.header>
   Question <%= @question.id %>
-  <:subtitle>This is a question record from your database.</:subtitle>
+  <:subtitle>The questions record consists of rows, each containing a question, its corresponding answer, a boolean indicator isDisplayed to determine whether the question and answer should be shown <br/>
+   and the language in which the question is presented. If a question lacks an answer, it signifies that this is a new question in the database, indicating that the chatbot couldn't find a response for that specific question.</:subtitle>
   <:actions>
     <.link patch={~p"/questions/#{@question}/show/edit"} phx-click={JS.push_focus()}>
       <button>Edit question</button>
