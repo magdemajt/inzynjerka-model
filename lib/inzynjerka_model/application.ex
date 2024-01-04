@@ -17,7 +17,7 @@ defmodule InzynjerkaModel.Application do
 
     Supervisor.start_link(children, opts)
 
-    model_name = "sdadas/mmlw-retrieval-e5-large"
+    model_name = "Voicelab/sbert-large-cased-pl"
     {:ok, model_info} = Bumblebee.load_model({:hf, model_name})
     {:ok, tokenizer} = Bumblebee.load_tokenizer({:hf, model_name})
 

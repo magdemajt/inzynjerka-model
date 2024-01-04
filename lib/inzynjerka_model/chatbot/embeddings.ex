@@ -114,9 +114,12 @@ defmodule InzynjerkaModel.Chatbot.Embeddings do
 
   def get_questions_without_embeddings_for_model(model) do
 #   SELECT q.content, q.id  FROM questions q LEFT OUTER JOIN question_embeddings qe ON q.id = qe.question_id WHERE qe.model != model_id OR qe.model IS NULL;
+    answered_question_ids_subquery =
+        from qe in QuestionEmbedding,
+        where: qe.model == ^model,
+        select: qe.question_id
     Repo.all(from q in Question,
-             left_join: qe in QuestionEmbedding, on: q.id == qe.question_id,
-             where: (qe.model != ^model) or (is_nil(qe.model)),
+             where: q.id not in subquery(answered_question_ids_subquery),
              select: [q.content, q.id])
   end
 

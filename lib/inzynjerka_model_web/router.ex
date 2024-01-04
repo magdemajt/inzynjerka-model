@@ -64,11 +64,8 @@ defmodule InzynjerkaModelWeb.Router do
     live "/question_statistics/most_frequently", QuestionStatisticsLive.MostFrequently, :most_frequently
     live "/question_statistics/not_answered", QuestionStatisticsLive.NotAnswered, :not_answered
 
-
-
-     live "/questions/:id", QuestionLive.Show, :show
+    live "/questions/:id", QuestionLive.Show, :show
     live "/questions/:id/show/edit", QuestionLive.Show, :edit
-
   end
 
   # Other scopes may use custom stacks.
